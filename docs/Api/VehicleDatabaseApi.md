@@ -1,74 +1,20 @@
-# Tuningfiles\VehicleDatabaseAPIApi
+# Tuningfiles\VehicleDatabaseApi
 
 All URIs are relative to *https://api.tuningfiles.com/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**vdbEnginesListGet**](VehicleDatabaseAPIApi.md#vdbEnginesListGet) | **GET** /vdb/engines/{model_id} | List engines
-[**vdbEnginesSearch**](VehicleDatabaseAPIApi.md#vdbEnginesSearch) | **GET** /vdb/engines/search | Search engine
-[**vdbEnginesViewGet**](VehicleDatabaseAPIApi.md#vdbEnginesViewGet) | **GET** /vdb/engines/view/{engine_id} | View engine
-[**vdbManufacturersListGet**](VehicleDatabaseAPIApi.md#vdbManufacturersListGet) | **GET** /vdb/manufacturers/{vehicle_type_id} | List manufacturers
-[**vdbManufacturersViewGet**](VehicleDatabaseAPIApi.md#vdbManufacturersViewGet) | **GET** /vdb/manufacturers/view/{manufacturer_id} | View manufacturer
-[**vdbModelsListGet**](VehicleDatabaseAPIApi.md#vdbModelsListGet) | **GET** /vdb/models/{manufacturer_id} | List models
-[**vdbModelsViewGet**](VehicleDatabaseAPIApi.md#vdbModelsViewGet) | **GET** /vdb/models/view/{model_id} | View model
-[**vdbPerformanceGet**](VehicleDatabaseAPIApi.md#vdbPerformanceGet) | **GET** /vdb/performance/{model_id}/{engine_id} | View vehicle performance
-[**vdbSearch**](VehicleDatabaseAPIApi.md#vdbSearch) | **GET** /vdb/search | Search
-[**vdbTypesGet**](VehicleDatabaseAPIApi.md#vdbTypesGet) | **GET** /vdb/types | List vehicle types
-[**vdbTypesIdGet**](VehicleDatabaseAPIApi.md#vdbTypesIdGet) | **GET** /vdb/types/{type_id} | View vehicle type
-
-# **vdbEnginesListGet**
-> \Tuningfiles\Model\VdbListEngines vdbEnginesListGet($model_id)
-
-List engines
-
-List engines for specific model
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-// Configure API key authorization: api_key
-$config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-$apiInstance = new Tuningfiles\Tuningfiles\VehicleDatabaseAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$model_id = 789; // int | Model ID
-
-try {
-    $result = $apiInstance->vdbEnginesListGet($model_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling VehicleDatabaseAPIApi->vdbEnginesListGet: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **model_id** | **int**| Model ID |
-
-### Return type
-
-[**\Tuningfiles\Model\VdbListEngines**](../Model/VdbListEngines.md)
-
-### Authorization
-
-[api_key](../../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[**vdbEnginesSearch**](VehicleDatabaseApi.md#vdbEnginesSearch) | **GET** /vdb/engines/search | Search engine
+[**vdbListEngines**](VehicleDatabaseApi.md#vdbListEngines) | **GET** /vdb/engines/{model_id} | List engines
+[**vdbListManufacturers**](VehicleDatabaseApi.md#vdbListManufacturers) | **GET** /vdb/manufacturers/{vehicle_type_id} | List manufacturers
+[**vdbListModels**](VehicleDatabaseApi.md#vdbListModels) | **GET** /vdb/models/{manufacturer_id} | List models
+[**vdbListTypes**](VehicleDatabaseApi.md#vdbListTypes) | **GET** /vdb/types | List vehicle types
+[**vdbSearch**](VehicleDatabaseApi.md#vdbSearch) | **GET** /vdb/search | Search
+[**vdbViewEngine**](VehicleDatabaseApi.md#vdbViewEngine) | **GET** /vdb/engines/view/{engine_id} | View engine
+[**vdbViewManufacturer**](VehicleDatabaseApi.md#vdbViewManufacturer) | **GET** /vdb/manufacturers/view/{manufacturer_id} | View manufacturer
+[**vdbViewModel**](VehicleDatabaseApi.md#vdbViewModel) | **GET** /vdb/models/view/{model_id} | View model
+[**vdbViewPerformance**](VehicleDatabaseApi.md#vdbViewPerformance) | **GET** /vdb/performance/{model_id}/{engine_id} | View vehicle performance
+[**vdbViewType**](VehicleDatabaseApi.md#vdbViewType) | **GET** /vdb/types/{type_id} | View vehicle type
 
 # **vdbEnginesSearch**
 > \Tuningfiles\Model\VdbListEngines vdbEnginesSearch($query, $fuel)
@@ -86,7 +32,7 @@ $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Tuningfiles\Tuningfiles\VehicleDatabaseAPIApi(
+$apiInstance = new Tuningfiles\Api\VehicleDatabaseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -99,7 +45,7 @@ try {
     $result = $apiInstance->vdbEnginesSearch($query, $fuel);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling VehicleDatabaseAPIApi->vdbEnginesSearch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling VehicleDatabaseApi->vdbEnginesSearch: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -126,12 +72,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **vdbEnginesViewGet**
-> \Tuningfiles\Model\VdbViewEngine vdbEnginesViewGet($engine_id)
+# **vdbListEngines**
+> \Tuningfiles\Model\VdbListEngines vdbListEngines($model_id)
 
-View engine
+List engines
 
-Returns information about specific engine
+List engines for specific model
 
 ### Example
 ```php
@@ -142,19 +88,19 @@ $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Tuningfiles\Tuningfiles\VehicleDatabaseAPIApi(
+$apiInstance = new Tuningfiles\Api\VehicleDatabaseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$engine_id = 789; // int | Engine ID
+$model_id = 789; // int | Model ID
 
 try {
-    $result = $apiInstance->vdbEnginesViewGet($engine_id);
+    $result = $apiInstance->vdbListEngines($model_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling VehicleDatabaseAPIApi->vdbEnginesViewGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling VehicleDatabaseApi->vdbListEngines: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -163,11 +109,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **engine_id** | **int**| Engine ID |
+ **model_id** | **int**| Model ID |
 
 ### Return type
 
-[**\Tuningfiles\Model\VdbViewEngine**](../Model/VdbViewEngine.md)
+[**\Tuningfiles\Model\VdbListEngines**](../Model/VdbListEngines.md)
 
 ### Authorization
 
@@ -180,8 +126,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **vdbManufacturersListGet**
-> \Tuningfiles\Model\VdbListManufacturers vdbManufacturersListGet($vehicle_type_id)
+# **vdbListManufacturers**
+> \Tuningfiles\Model\VdbListManufacturers vdbListManufacturers($vehicle_type_id)
 
 List manufacturers
 
@@ -196,7 +142,7 @@ $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Tuningfiles\Tuningfiles\VehicleDatabaseAPIApi(
+$apiInstance = new Tuningfiles\Api\VehicleDatabaseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -205,10 +151,10 @@ $apiInstance = new Tuningfiles\Tuningfiles\VehicleDatabaseAPIApi(
 $vehicle_type_id = 789; // int | Vehicle type ID
 
 try {
-    $result = $apiInstance->vdbManufacturersListGet($vehicle_type_id);
+    $result = $apiInstance->vdbListManufacturers($vehicle_type_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling VehicleDatabaseAPIApi->vdbManufacturersListGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling VehicleDatabaseApi->vdbListManufacturers: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -234,62 +180,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **vdbManufacturersViewGet**
-> \Tuningfiles\Model\VdbViewManufacturer vdbManufacturersViewGet($manufacturer_id)
-
-View manufacturer
-
-Returns information about specific manufacturer
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-// Configure API key authorization: api_key
-$config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-$apiInstance = new Tuningfiles\Tuningfiles\VehicleDatabaseAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$manufacturer_id = 789; // int | Manufacturer ID
-
-try {
-    $result = $apiInstance->vdbManufacturersViewGet($manufacturer_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling VehicleDatabaseAPIApi->vdbManufacturersViewGet: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **manufacturer_id** | **int**| Manufacturer ID |
-
-### Return type
-
-[**\Tuningfiles\Model\VdbViewManufacturer**](../Model/VdbViewManufacturer.md)
-
-### Authorization
-
-[api_key](../../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **vdbModelsListGet**
-> \Tuningfiles\Model\VdbListModels vdbModelsListGet($manufacturer_id)
+# **vdbListModels**
+> \Tuningfiles\Model\VdbListModels vdbListModels($manufacturer_id)
 
 List models
 
@@ -304,7 +196,7 @@ $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Tuningfiles\Tuningfiles\VehicleDatabaseAPIApi(
+$apiInstance = new Tuningfiles\Api\VehicleDatabaseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -313,10 +205,10 @@ $apiInstance = new Tuningfiles\Tuningfiles\VehicleDatabaseAPIApi(
 $manufacturer_id = 789; // int | Manufacturer ID
 
 try {
-    $result = $apiInstance->vdbModelsListGet($manufacturer_id);
+    $result = $apiInstance->vdbListModels($manufacturer_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling VehicleDatabaseAPIApi->vdbModelsListGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling VehicleDatabaseApi->vdbListModels: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -342,66 +234,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **vdbModelsViewGet**
-> \Tuningfiles\Model\VdbViewModel vdbModelsViewGet($model_id)
+# **vdbListTypes**
+> \Tuningfiles\Model\VdbListSuccess vdbListTypes()
 
-View model
+List vehicle types
 
-Returns information about specific model
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-// Configure API key authorization: api_key
-$config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-$apiInstance = new Tuningfiles\Tuningfiles\VehicleDatabaseAPIApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$model_id = 789; // int | Model ID
-
-try {
-    $result = $apiInstance->vdbModelsViewGet($model_id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling VehicleDatabaseAPIApi->vdbModelsViewGet: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **model_id** | **int**| Model ID |
-
-### Return type
-
-[**\Tuningfiles\Model\VdbViewModel**](../Model/VdbViewModel.md)
-
-### Authorization
-
-[api_key](../../README.md#api_key)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **vdbPerformanceGet**
-> \Tuningfiles\Model\VdbPerformance vdbPerformanceGet($model_id, $engine_id)
-
-View vehicle performance
-
-Getting data of vehicle performance per model and engine
+Returns a list of all available vehicle types
 
 ### Example
 ```php
@@ -412,34 +250,28 @@ $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Tuningfiles\Tuningfiles\VehicleDatabaseAPIApi(
+$apiInstance = new Tuningfiles\Api\VehicleDatabaseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$model_id = 789; // int | Model ID
-$engine_id = 789; // int | Engine ID
 
 try {
-    $result = $apiInstance->vdbPerformanceGet($model_id, $engine_id);
+    $result = $apiInstance->vdbListTypes();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling VehicleDatabaseAPIApi->vdbPerformanceGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling VehicleDatabaseApi->vdbListTypes: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **model_id** | **int**| Model ID |
- **engine_id** | **int**| Engine ID |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Tuningfiles\Model\VdbPerformance**](../Model/VdbPerformance.md)
+[**\Tuningfiles\Model\VdbListSuccess**](../Model/VdbListSuccess.md)
 
 ### Authorization
 
@@ -468,7 +300,7 @@ $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Tuningfiles\Tuningfiles\VehicleDatabaseAPIApi(
+$apiInstance = new Tuningfiles\Api\VehicleDatabaseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -480,7 +312,7 @@ try {
     $result = $apiInstance->vdbSearch($query);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling VehicleDatabaseAPIApi->vdbSearch: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling VehicleDatabaseApi->vdbSearch: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -506,12 +338,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **vdbTypesGet**
-> \Tuningfiles\Model\VdbListSuccess vdbTypesGet()
+# **vdbViewEngine**
+> \Tuningfiles\Model\VdbViewEngine vdbViewEngine($engine_id)
 
-List vehicle types
+View engine
 
-Returns a list of all available vehicle types
+Returns information about specific engine
 
 ### Example
 ```php
@@ -522,28 +354,32 @@ $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Tuningfiles\Tuningfiles\VehicleDatabaseAPIApi(
+$apiInstance = new Tuningfiles\Api\VehicleDatabaseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
+$engine_id = 789; // int | Engine ID
 
 try {
-    $result = $apiInstance->vdbTypesGet();
+    $result = $apiInstance->vdbViewEngine($engine_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling VehicleDatabaseAPIApi->vdbTypesGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling VehicleDatabaseApi->vdbViewEngine: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **engine_id** | **int**| Engine ID |
 
 ### Return type
 
-[**\Tuningfiles\Model\VdbListSuccess**](../Model/VdbListSuccess.md)
+[**\Tuningfiles\Model\VdbViewEngine**](../Model/VdbViewEngine.md)
 
 ### Authorization
 
@@ -556,8 +392,172 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **vdbTypesIdGet**
-> \Tuningfiles\Model\VdbViewTypesSuccess vdbTypesIdGet($type_id)
+# **vdbViewManufacturer**
+> \Tuningfiles\Model\VdbViewManufacturer vdbViewManufacturer($manufacturer_id)
+
+View manufacturer
+
+Returns information about specific manufacturer
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: api_key
+$config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+$apiInstance = new Tuningfiles\Api\VehicleDatabaseApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$manufacturer_id = 789; // int | Manufacturer ID
+
+try {
+    $result = $apiInstance->vdbViewManufacturer($manufacturer_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling VehicleDatabaseApi->vdbViewManufacturer: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **manufacturer_id** | **int**| Manufacturer ID |
+
+### Return type
+
+[**\Tuningfiles\Model\VdbViewManufacturer**](../Model/VdbViewManufacturer.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **vdbViewModel**
+> \Tuningfiles\Model\VdbViewModel vdbViewModel($model_id)
+
+View model
+
+Returns information about specific model
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: api_key
+$config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+$apiInstance = new Tuningfiles\Api\VehicleDatabaseApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$model_id = 789; // int | Model ID
+
+try {
+    $result = $apiInstance->vdbViewModel($model_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling VehicleDatabaseApi->vdbViewModel: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **model_id** | **int**| Model ID |
+
+### Return type
+
+[**\Tuningfiles\Model\VdbViewModel**](../Model/VdbViewModel.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **vdbViewPerformance**
+> \Tuningfiles\Model\VdbPerformance vdbViewPerformance($model_id, $engine_id)
+
+View vehicle performance
+
+Getting data of vehicle performance per model and engine
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: api_key
+$config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+$apiInstance = new Tuningfiles\Api\VehicleDatabaseApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$model_id = 789; // int | Model ID
+$engine_id = 789; // int | Engine ID
+
+try {
+    $result = $apiInstance->vdbViewPerformance($model_id, $engine_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling VehicleDatabaseApi->vdbViewPerformance: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **model_id** | **int**| Model ID |
+ **engine_id** | **int**| Engine ID |
+
+### Return type
+
+[**\Tuningfiles\Model\VdbPerformance**](../Model/VdbPerformance.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **vdbViewType**
+> \Tuningfiles\Model\VdbViewTypesSuccess vdbViewType($type_id)
 
 View vehicle type
 
@@ -572,7 +572,7 @@ $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Tuningfiles\Tuningfiles\VehicleDatabaseAPIApi(
+$apiInstance = new Tuningfiles\Api\VehicleDatabaseApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -581,10 +581,10 @@ $apiInstance = new Tuningfiles\Tuningfiles\VehicleDatabaseAPIApi(
 $type_id = 789; // int | Vehicle type ID
 
 try {
-    $result = $apiInstance->vdbTypesIdGet($type_id);
+    $result = $apiInstance->vdbViewType($type_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling VehicleDatabaseAPIApi->vdbTypesIdGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling VehicleDatabaseApi->vdbViewType: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

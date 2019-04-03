@@ -1,6 +1,6 @@
 <?php
 /**
- * VehicleDatabaseAPIApiTest
+ * TuningApiTest
  * PHP version 5
  *
  * @category Class
@@ -32,14 +32,14 @@ use Tuningfiles\ApiException;
 use Tuningfiles\ObjectSerializer;
 
 /**
- * VehicleDatabaseAPIApiTest Class Doc Comment
+ * TuningApiTest Class Doc Comment
  *
  * @category Class
  * @package  Tuningfiles
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class VehicleDatabaseAPIApiTest extends \PHPUnit_Framework_TestCase
+class TuningApiTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,112 +71,72 @@ class VehicleDatabaseAPIApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for vdbEnginesListGet
+     * Test case for attachmentUpload
      *
-     * List engines.
+     * Upload attachment.
      *
      */
-    public function testVdbEnginesListGet()
+    public function testAttachmentUpload()
     {
     }
 
     /**
-     * Test case for vdbEnginesSearch
+     * Test case for fileDownload
      *
-     * Search engine.
+     * Download file.
      *
      */
-    public function testVdbEnginesSearch()
+    public function testFileDownload()
     {
     }
 
     /**
-     * Test case for vdbEnginesViewGet
+     * Test case for filePurchase
      *
-     * View engine.
+     * Purchase file.
      *
      */
-    public function testVdbEnginesViewGet()
+    public function testFilePurchase()
     {
     }
 
     /**
-     * Test case for vdbManufacturersListGet
+     * Test case for fileUpload
      *
-     * List manufacturers.
+     * Upload original file.
      *
      */
-    public function testVdbManufacturersListGet()
+    public function testFileUpload()
     {
     }
 
     /**
-     * Test case for vdbManufacturersViewGet
+     * Test case for notificationChannelsList
      *
-     * View manufacturer.
+     * View notification channels.
      *
      */
-    public function testVdbManufacturersViewGet()
+    public function testNotificationChannelsList()
     {
     }
 
     /**
-     * Test case for vdbModelsListGet
+     * Test case for readToolsList
      *
-     * List models.
+     * View available read tools.
      *
      */
-    public function testVdbModelsListGet()
+    public function testReadToolsList()
     {
     }
 
     /**
-     * Test case for vdbModelsViewGet
+     * Test case for remapsList
      *
-     * View model.
-     *
-     */
-    public function testVdbModelsViewGet()
-    {
-    }
-
-    /**
-     * Test case for vdbPerformanceGet
-     *
-     * View vehicle performance.
+     * View available remaps.
      *
      */
-    public function testVdbPerformanceGet()
-    {
-    }
-
-    /**
-     * Test case for vdbSearch
-     *
-     * Search.
-     *
-     */
-    public function testVdbSearch()
-    {
-    }
-
-    /**
-     * Test case for vdbTypesGet
-     *
-     * List vehicle types.
-     *
-     */
-    public function testVdbTypesGet()
-    {
-    }
-
-    /**
-     * Test case for vdbTypesIdGet
-     *
-     * View vehicle type.
-     *
-     */
-    public function testVdbTypesIdGet()
+    public function testRemapsList()
     {
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * VehicleDatabaseAPIApi
+ * VehicleDatabaseApi
  * PHP version 5
  *
  * @category Class
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Tuningfiles\Tuningfiles;
+namespace Tuningfiles\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -39,14 +39,14 @@ use Tuningfiles\HeaderSelector;
 use Tuningfiles\ObjectSerializer;
 
 /**
- * VehicleDatabaseAPIApi Class Doc Comment
+ * VehicleDatabaseApi Class Doc Comment
  *
  * @category Class
  * @package  Tuningfiles
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class VehicleDatabaseAPIApi
+class VehicleDatabaseApi
 {
     /**
      * @var ClientInterface
@@ -84,305 +84,6 @@ class VehicleDatabaseAPIApi
     public function getConfig()
     {
         return $this->config;
-    }
-
-    /**
-     * Operation vdbEnginesListGet
-     *
-     * List engines
-     *
-     * @param  int $model_id Model ID (required)
-     *
-     * @throws \Tuningfiles\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Tuningfiles\Model\VdbListEngines
-     */
-    public function vdbEnginesListGet($model_id)
-    {
-        list($response) = $this->vdbEnginesListGetWithHttpInfo($model_id);
-        return $response;
-    }
-
-    /**
-     * Operation vdbEnginesListGetWithHttpInfo
-     *
-     * List engines
-     *
-     * @param  int $model_id Model ID (required)
-     *
-     * @throws \Tuningfiles\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Tuningfiles\Model\VdbListEngines, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function vdbEnginesListGetWithHttpInfo($model_id)
-    {
-        $returnType = '\Tuningfiles\Model\VdbListEngines';
-        $request = $this->vdbEnginesListGetRequest($model_id);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Tuningfiles\Model\VdbListEngines',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Tuningfiles\Model\ErrorBadRequest',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Tuningfiles\Model\Error401',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Tuningfiles\Model\ErrorInvalidKey',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Tuningfiles\Model\Error404',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation vdbEnginesListGetAsync
-     *
-     * List engines
-     *
-     * @param  int $model_id Model ID (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function vdbEnginesListGetAsync($model_id)
-    {
-        return $this->vdbEnginesListGetAsyncWithHttpInfo($model_id)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation vdbEnginesListGetAsyncWithHttpInfo
-     *
-     * List engines
-     *
-     * @param  int $model_id Model ID (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function vdbEnginesListGetAsyncWithHttpInfo($model_id)
-    {
-        $returnType = '\Tuningfiles\Model\VdbListEngines';
-        $request = $this->vdbEnginesListGetRequest($model_id);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'vdbEnginesListGet'
-     *
-     * @param  int $model_id Model ID (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function vdbEnginesListGetRequest($model_id)
-    {
-        // verify the required parameter 'model_id' is set
-        if ($model_id === null || (is_array($model_id) && count($model_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $model_id when calling vdbEnginesListGet'
-            );
-        }
-
-        $resourcePath = '/vdb/engines/{model_id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($model_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'model_id' . '}',
-                ObjectSerializer::toPathValue($model_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'application/xml']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'application/xml'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
     /**
@@ -690,37 +391,37 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Operation vdbEnginesViewGet
+     * Operation vdbListEngines
      *
-     * View engine
+     * List engines
      *
-     * @param  int $engine_id Engine ID (required)
+     * @param  int $model_id Model ID (required)
      *
      * @throws \Tuningfiles\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Tuningfiles\Model\VdbViewEngine
+     * @return \Tuningfiles\Model\VdbListEngines
      */
-    public function vdbEnginesViewGet($engine_id)
+    public function vdbListEngines($model_id)
     {
-        list($response) = $this->vdbEnginesViewGetWithHttpInfo($engine_id);
+        list($response) = $this->vdbListEnginesWithHttpInfo($model_id);
         return $response;
     }
 
     /**
-     * Operation vdbEnginesViewGetWithHttpInfo
+     * Operation vdbListEnginesWithHttpInfo
      *
-     * View engine
+     * List engines
      *
-     * @param  int $engine_id Engine ID (required)
+     * @param  int $model_id Model ID (required)
      *
      * @throws \Tuningfiles\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Tuningfiles\Model\VdbViewEngine, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Tuningfiles\Model\VdbListEngines, HTTP status code, HTTP response headers (array of strings)
      */
-    public function vdbEnginesViewGetWithHttpInfo($engine_id)
+    public function vdbListEnginesWithHttpInfo($model_id)
     {
-        $returnType = '\Tuningfiles\Model\VdbViewEngine';
-        $request = $this->vdbEnginesViewGetRequest($engine_id);
+        $returnType = '\Tuningfiles\Model\VdbListEngines';
+        $request = $this->vdbListEnginesRequest($model_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -771,7 +472,7 @@ class VehicleDatabaseAPIApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Tuningfiles\Model\VdbViewEngine',
+                        '\Tuningfiles\Model\VdbListEngines',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -814,18 +515,18 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Operation vdbEnginesViewGetAsync
+     * Operation vdbListEnginesAsync
      *
-     * View engine
+     * List engines
      *
-     * @param  int $engine_id Engine ID (required)
+     * @param  int $model_id Model ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function vdbEnginesViewGetAsync($engine_id)
+    public function vdbListEnginesAsync($model_id)
     {
-        return $this->vdbEnginesViewGetAsyncWithHttpInfo($engine_id)
+        return $this->vdbListEnginesAsyncWithHttpInfo($model_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -834,19 +535,19 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Operation vdbEnginesViewGetAsyncWithHttpInfo
+     * Operation vdbListEnginesAsyncWithHttpInfo
      *
-     * View engine
+     * List engines
      *
-     * @param  int $engine_id Engine ID (required)
+     * @param  int $model_id Model ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function vdbEnginesViewGetAsyncWithHttpInfo($engine_id)
+    public function vdbListEnginesAsyncWithHttpInfo($model_id)
     {
-        $returnType = '\Tuningfiles\Model\VdbViewEngine';
-        $request = $this->vdbEnginesViewGetRequest($engine_id);
+        $returnType = '\Tuningfiles\Model\VdbListEngines';
+        $request = $this->vdbListEnginesRequest($model_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -886,23 +587,23 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Create request for operation 'vdbEnginesViewGet'
+     * Create request for operation 'vdbListEngines'
      *
-     * @param  int $engine_id Engine ID (required)
+     * @param  int $model_id Model ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function vdbEnginesViewGetRequest($engine_id)
+    protected function vdbListEnginesRequest($model_id)
     {
-        // verify the required parameter 'engine_id' is set
-        if ($engine_id === null || (is_array($engine_id) && count($engine_id) === 0)) {
+        // verify the required parameter 'model_id' is set
+        if ($model_id === null || (is_array($model_id) && count($model_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $engine_id when calling vdbEnginesViewGet'
+                'Missing the required parameter $model_id when calling vdbListEngines'
             );
         }
 
-        $resourcePath = '/vdb/engines/view/{engine_id}';
+        $resourcePath = '/vdb/engines/{model_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -911,10 +612,10 @@ class VehicleDatabaseAPIApi
 
 
         // path params
-        if ($engine_id !== null) {
+        if ($model_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'engine_id' . '}',
-                ObjectSerializer::toPathValue($engine_id),
+                '{' . 'model_id' . '}',
+                ObjectSerializer::toPathValue($model_id),
                 $resourcePath
             );
         }
@@ -989,7 +690,7 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Operation vdbManufacturersListGet
+     * Operation vdbListManufacturers
      *
      * List manufacturers
      *
@@ -999,14 +700,14 @@ class VehicleDatabaseAPIApi
      * @throws \InvalidArgumentException
      * @return \Tuningfiles\Model\VdbListManufacturers
      */
-    public function vdbManufacturersListGet($vehicle_type_id)
+    public function vdbListManufacturers($vehicle_type_id)
     {
-        list($response) = $this->vdbManufacturersListGetWithHttpInfo($vehicle_type_id);
+        list($response) = $this->vdbListManufacturersWithHttpInfo($vehicle_type_id);
         return $response;
     }
 
     /**
-     * Operation vdbManufacturersListGetWithHttpInfo
+     * Operation vdbListManufacturersWithHttpInfo
      *
      * List manufacturers
      *
@@ -1016,10 +717,10 @@ class VehicleDatabaseAPIApi
      * @throws \InvalidArgumentException
      * @return array of \Tuningfiles\Model\VdbListManufacturers, HTTP status code, HTTP response headers (array of strings)
      */
-    public function vdbManufacturersListGetWithHttpInfo($vehicle_type_id)
+    public function vdbListManufacturersWithHttpInfo($vehicle_type_id)
     {
         $returnType = '\Tuningfiles\Model\VdbListManufacturers';
-        $request = $this->vdbManufacturersListGetRequest($vehicle_type_id);
+        $request = $this->vdbListManufacturersRequest($vehicle_type_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1113,7 +814,7 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Operation vdbManufacturersListGetAsync
+     * Operation vdbListManufacturersAsync
      *
      * List manufacturers
      *
@@ -1122,9 +823,9 @@ class VehicleDatabaseAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function vdbManufacturersListGetAsync($vehicle_type_id)
+    public function vdbListManufacturersAsync($vehicle_type_id)
     {
-        return $this->vdbManufacturersListGetAsyncWithHttpInfo($vehicle_type_id)
+        return $this->vdbListManufacturersAsyncWithHttpInfo($vehicle_type_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1133,7 +834,7 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Operation vdbManufacturersListGetAsyncWithHttpInfo
+     * Operation vdbListManufacturersAsyncWithHttpInfo
      *
      * List manufacturers
      *
@@ -1142,10 +843,10 @@ class VehicleDatabaseAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function vdbManufacturersListGetAsyncWithHttpInfo($vehicle_type_id)
+    public function vdbListManufacturersAsyncWithHttpInfo($vehicle_type_id)
     {
         $returnType = '\Tuningfiles\Model\VdbListManufacturers';
-        $request = $this->vdbManufacturersListGetRequest($vehicle_type_id);
+        $request = $this->vdbListManufacturersRequest($vehicle_type_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1185,19 +886,19 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Create request for operation 'vdbManufacturersListGet'
+     * Create request for operation 'vdbListManufacturers'
      *
      * @param  int $vehicle_type_id Vehicle type ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function vdbManufacturersListGetRequest($vehicle_type_id)
+    protected function vdbListManufacturersRequest($vehicle_type_id)
     {
         // verify the required parameter 'vehicle_type_id' is set
         if ($vehicle_type_id === null || (is_array($vehicle_type_id) && count($vehicle_type_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $vehicle_type_id when calling vdbManufacturersListGet'
+                'Missing the required parameter $vehicle_type_id when calling vdbListManufacturers'
             );
         }
 
@@ -1288,306 +989,7 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Operation vdbManufacturersViewGet
-     *
-     * View manufacturer
-     *
-     * @param  int $manufacturer_id Manufacturer ID (required)
-     *
-     * @throws \Tuningfiles\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Tuningfiles\Model\VdbViewManufacturer
-     */
-    public function vdbManufacturersViewGet($manufacturer_id)
-    {
-        list($response) = $this->vdbManufacturersViewGetWithHttpInfo($manufacturer_id);
-        return $response;
-    }
-
-    /**
-     * Operation vdbManufacturersViewGetWithHttpInfo
-     *
-     * View manufacturer
-     *
-     * @param  int $manufacturer_id Manufacturer ID (required)
-     *
-     * @throws \Tuningfiles\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Tuningfiles\Model\VdbViewManufacturer, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function vdbManufacturersViewGetWithHttpInfo($manufacturer_id)
-    {
-        $returnType = '\Tuningfiles\Model\VdbViewManufacturer';
-        $request = $this->vdbManufacturersViewGetRequest($manufacturer_id);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Tuningfiles\Model\VdbViewManufacturer',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Tuningfiles\Model\ErrorBadRequest',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Tuningfiles\Model\Error401',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Tuningfiles\Model\ErrorInvalidKey',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Tuningfiles\Model\Error404',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation vdbManufacturersViewGetAsync
-     *
-     * View manufacturer
-     *
-     * @param  int $manufacturer_id Manufacturer ID (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function vdbManufacturersViewGetAsync($manufacturer_id)
-    {
-        return $this->vdbManufacturersViewGetAsyncWithHttpInfo($manufacturer_id)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation vdbManufacturersViewGetAsyncWithHttpInfo
-     *
-     * View manufacturer
-     *
-     * @param  int $manufacturer_id Manufacturer ID (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function vdbManufacturersViewGetAsyncWithHttpInfo($manufacturer_id)
-    {
-        $returnType = '\Tuningfiles\Model\VdbViewManufacturer';
-        $request = $this->vdbManufacturersViewGetRequest($manufacturer_id);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'vdbManufacturersViewGet'
-     *
-     * @param  int $manufacturer_id Manufacturer ID (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function vdbManufacturersViewGetRequest($manufacturer_id)
-    {
-        // verify the required parameter 'manufacturer_id' is set
-        if ($manufacturer_id === null || (is_array($manufacturer_id) && count($manufacturer_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $manufacturer_id when calling vdbManufacturersViewGet'
-            );
-        }
-
-        $resourcePath = '/vdb/manufacturers/view/{manufacturer_id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($manufacturer_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'manufacturer_id' . '}',
-                ObjectSerializer::toPathValue($manufacturer_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'application/xml']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'application/xml'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation vdbModelsListGet
+     * Operation vdbListModels
      *
      * List models
      *
@@ -1597,14 +999,14 @@ class VehicleDatabaseAPIApi
      * @throws \InvalidArgumentException
      * @return \Tuningfiles\Model\VdbListModels
      */
-    public function vdbModelsListGet($manufacturer_id)
+    public function vdbListModels($manufacturer_id)
     {
-        list($response) = $this->vdbModelsListGetWithHttpInfo($manufacturer_id);
+        list($response) = $this->vdbListModelsWithHttpInfo($manufacturer_id);
         return $response;
     }
 
     /**
-     * Operation vdbModelsListGetWithHttpInfo
+     * Operation vdbListModelsWithHttpInfo
      *
      * List models
      *
@@ -1614,10 +1016,10 @@ class VehicleDatabaseAPIApi
      * @throws \InvalidArgumentException
      * @return array of \Tuningfiles\Model\VdbListModels, HTTP status code, HTTP response headers (array of strings)
      */
-    public function vdbModelsListGetWithHttpInfo($manufacturer_id)
+    public function vdbListModelsWithHttpInfo($manufacturer_id)
     {
         $returnType = '\Tuningfiles\Model\VdbListModels';
-        $request = $this->vdbModelsListGetRequest($manufacturer_id);
+        $request = $this->vdbListModelsRequest($manufacturer_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1711,7 +1113,7 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Operation vdbModelsListGetAsync
+     * Operation vdbListModelsAsync
      *
      * List models
      *
@@ -1720,9 +1122,9 @@ class VehicleDatabaseAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function vdbModelsListGetAsync($manufacturer_id)
+    public function vdbListModelsAsync($manufacturer_id)
     {
-        return $this->vdbModelsListGetAsyncWithHttpInfo($manufacturer_id)
+        return $this->vdbListModelsAsyncWithHttpInfo($manufacturer_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1731,7 +1133,7 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Operation vdbModelsListGetAsyncWithHttpInfo
+     * Operation vdbListModelsAsyncWithHttpInfo
      *
      * List models
      *
@@ -1740,10 +1142,10 @@ class VehicleDatabaseAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function vdbModelsListGetAsyncWithHttpInfo($manufacturer_id)
+    public function vdbListModelsAsyncWithHttpInfo($manufacturer_id)
     {
         $returnType = '\Tuningfiles\Model\VdbListModels';
-        $request = $this->vdbModelsListGetRequest($manufacturer_id);
+        $request = $this->vdbListModelsRequest($manufacturer_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1783,19 +1185,19 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Create request for operation 'vdbModelsListGet'
+     * Create request for operation 'vdbListModels'
      *
      * @param  int $manufacturer_id Manufacturer ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function vdbModelsListGetRequest($manufacturer_id)
+    protected function vdbListModelsRequest($manufacturer_id)
     {
         // verify the required parameter 'manufacturer_id' is set
         if ($manufacturer_id === null || (is_array($manufacturer_id) && count($manufacturer_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $manufacturer_id when calling vdbModelsListGet'
+                'Missing the required parameter $manufacturer_id when calling vdbListModels'
             );
         }
 
@@ -1886,37 +1288,35 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Operation vdbModelsViewGet
+     * Operation vdbListTypes
      *
-     * View model
+     * List vehicle types
      *
-     * @param  int $model_id Model ID (required)
      *
      * @throws \Tuningfiles\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Tuningfiles\Model\VdbViewModel
+     * @return \Tuningfiles\Model\VdbListSuccess
      */
-    public function vdbModelsViewGet($model_id)
+    public function vdbListTypes()
     {
-        list($response) = $this->vdbModelsViewGetWithHttpInfo($model_id);
+        list($response) = $this->vdbListTypesWithHttpInfo();
         return $response;
     }
 
     /**
-     * Operation vdbModelsViewGetWithHttpInfo
+     * Operation vdbListTypesWithHttpInfo
      *
-     * View model
+     * List vehicle types
      *
-     * @param  int $model_id Model ID (required)
      *
      * @throws \Tuningfiles\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Tuningfiles\Model\VdbViewModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Tuningfiles\Model\VdbListSuccess, HTTP status code, HTTP response headers (array of strings)
      */
-    public function vdbModelsViewGetWithHttpInfo($model_id)
+    public function vdbListTypesWithHttpInfo()
     {
-        $returnType = '\Tuningfiles\Model\VdbViewModel';
-        $request = $this->vdbModelsViewGetRequest($model_id);
+        $returnType = '\Tuningfiles\Model\VdbListSuccess';
+        $request = $this->vdbListTypesRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -1967,15 +1367,7 @@ class VehicleDatabaseAPIApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Tuningfiles\Model\VdbViewModel',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Tuningfiles\Model\ErrorBadRequest',
+                        '\Tuningfiles\Model\VdbListSuccess',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1996,32 +1388,23 @@ class VehicleDatabaseAPIApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Tuningfiles\Model\Error404',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
             }
             throw $e;
         }
     }
 
     /**
-     * Operation vdbModelsViewGetAsync
+     * Operation vdbListTypesAsync
      *
-     * View model
+     * List vehicle types
      *
-     * @param  int $model_id Model ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function vdbModelsViewGetAsync($model_id)
+    public function vdbListTypesAsync()
     {
-        return $this->vdbModelsViewGetAsyncWithHttpInfo($model_id)
+        return $this->vdbListTypesAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2030,19 +1413,18 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Operation vdbModelsViewGetAsyncWithHttpInfo
+     * Operation vdbListTypesAsyncWithHttpInfo
      *
-     * View model
+     * List vehicle types
      *
-     * @param  int $model_id Model ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function vdbModelsViewGetAsyncWithHttpInfo($model_id)
+    public function vdbListTypesAsyncWithHttpInfo()
     {
-        $returnType = '\Tuningfiles\Model\VdbViewModel';
-        $request = $this->vdbModelsViewGetRequest($model_id);
+        $returnType = '\Tuningfiles\Model\VdbListSuccess';
+        $request = $this->vdbListTypesRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2082,23 +1464,16 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Create request for operation 'vdbModelsViewGet'
+     * Create request for operation 'vdbListTypes'
      *
-     * @param  int $model_id Model ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function vdbModelsViewGetRequest($model_id)
+    protected function vdbListTypesRequest()
     {
-        // verify the required parameter 'model_id' is set
-        if ($model_id === null || (is_array($model_id) && count($model_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $model_id when calling vdbModelsViewGet'
-            );
-        }
 
-        $resourcePath = '/vdb/models/view/{model_id}';
+        $resourcePath = '/vdb/types';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2106,332 +1481,6 @@ class VehicleDatabaseAPIApi
         $multipart = false;
 
 
-        // path params
-        if ($model_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'model_id' . '}',
-                ObjectSerializer::toPathValue($model_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'application/xml']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'application/xml'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation vdbPerformanceGet
-     *
-     * View vehicle performance
-     *
-     * @param  int $model_id Model ID (required)
-     * @param  int $engine_id Engine ID (required)
-     *
-     * @throws \Tuningfiles\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Tuningfiles\Model\VdbPerformance
-     */
-    public function vdbPerformanceGet($model_id, $engine_id)
-    {
-        list($response) = $this->vdbPerformanceGetWithHttpInfo($model_id, $engine_id);
-        return $response;
-    }
-
-    /**
-     * Operation vdbPerformanceGetWithHttpInfo
-     *
-     * View vehicle performance
-     *
-     * @param  int $model_id Model ID (required)
-     * @param  int $engine_id Engine ID (required)
-     *
-     * @throws \Tuningfiles\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Tuningfiles\Model\VdbPerformance, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function vdbPerformanceGetWithHttpInfo($model_id, $engine_id)
-    {
-        $returnType = '\Tuningfiles\Model\VdbPerformance';
-        $request = $this->vdbPerformanceGetRequest($model_id, $engine_id);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Tuningfiles\Model\VdbPerformance',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Tuningfiles\Model\ErrorBadRequest',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Tuningfiles\Model\Error401',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Tuningfiles\Model\ErrorInvalidKey',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Tuningfiles\Model\Error404',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation vdbPerformanceGetAsync
-     *
-     * View vehicle performance
-     *
-     * @param  int $model_id Model ID (required)
-     * @param  int $engine_id Engine ID (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function vdbPerformanceGetAsync($model_id, $engine_id)
-    {
-        return $this->vdbPerformanceGetAsyncWithHttpInfo($model_id, $engine_id)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation vdbPerformanceGetAsyncWithHttpInfo
-     *
-     * View vehicle performance
-     *
-     * @param  int $model_id Model ID (required)
-     * @param  int $engine_id Engine ID (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function vdbPerformanceGetAsyncWithHttpInfo($model_id, $engine_id)
-    {
-        $returnType = '\Tuningfiles\Model\VdbPerformance';
-        $request = $this->vdbPerformanceGetRequest($model_id, $engine_id);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'vdbPerformanceGet'
-     *
-     * @param  int $model_id Model ID (required)
-     * @param  int $engine_id Engine ID (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function vdbPerformanceGetRequest($model_id, $engine_id)
-    {
-        // verify the required parameter 'model_id' is set
-        if ($model_id === null || (is_array($model_id) && count($model_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $model_id when calling vdbPerformanceGet'
-            );
-        }
-        // verify the required parameter 'engine_id' is set
-        if ($engine_id === null || (is_array($engine_id) && count($engine_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $engine_id when calling vdbPerformanceGet'
-            );
-        }
-
-        $resourcePath = '/vdb/performance/{model_id}/{engine_id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($model_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'model_id' . '}',
-                ObjectSerializer::toPathValue($model_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($engine_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'engine_id' . '}',
-                ObjectSerializer::toPathValue($engine_id),
-                $resourcePath
-            );
-        }
 
         // body params
         $_tempBody = null;
@@ -2798,35 +1847,37 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Operation vdbTypesGet
+     * Operation vdbViewEngine
      *
-     * List vehicle types
+     * View engine
      *
+     * @param  int $engine_id Engine ID (required)
      *
      * @throws \Tuningfiles\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Tuningfiles\Model\VdbListSuccess
+     * @return \Tuningfiles\Model\VdbViewEngine
      */
-    public function vdbTypesGet()
+    public function vdbViewEngine($engine_id)
     {
-        list($response) = $this->vdbTypesGetWithHttpInfo();
+        list($response) = $this->vdbViewEngineWithHttpInfo($engine_id);
         return $response;
     }
 
     /**
-     * Operation vdbTypesGetWithHttpInfo
+     * Operation vdbViewEngineWithHttpInfo
      *
-     * List vehicle types
+     * View engine
      *
+     * @param  int $engine_id Engine ID (required)
      *
      * @throws \Tuningfiles\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Tuningfiles\Model\VdbListSuccess, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Tuningfiles\Model\VdbViewEngine, HTTP status code, HTTP response headers (array of strings)
      */
-    public function vdbTypesGetWithHttpInfo()
+    public function vdbViewEngineWithHttpInfo($engine_id)
     {
-        $returnType = '\Tuningfiles\Model\VdbListSuccess';
-        $request = $this->vdbTypesGetRequest();
+        $returnType = '\Tuningfiles\Model\VdbViewEngine';
+        $request = $this->vdbViewEngineRequest($engine_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2877,7 +1928,15 @@ class VehicleDatabaseAPIApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Tuningfiles\Model\VdbListSuccess',
+                        '\Tuningfiles\Model\VdbViewEngine',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Tuningfiles\Model\ErrorBadRequest',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2898,23 +1957,32 @@ class VehicleDatabaseAPIApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Tuningfiles\Model\Error404',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
     }
 
     /**
-     * Operation vdbTypesGetAsync
+     * Operation vdbViewEngineAsync
      *
-     * List vehicle types
+     * View engine
      *
+     * @param  int $engine_id Engine ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function vdbTypesGetAsync()
+    public function vdbViewEngineAsync($engine_id)
     {
-        return $this->vdbTypesGetAsyncWithHttpInfo()
+        return $this->vdbViewEngineAsyncWithHttpInfo($engine_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2923,18 +1991,19 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Operation vdbTypesGetAsyncWithHttpInfo
+     * Operation vdbViewEngineAsyncWithHttpInfo
      *
-     * List vehicle types
+     * View engine
      *
+     * @param  int $engine_id Engine ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function vdbTypesGetAsyncWithHttpInfo()
+    public function vdbViewEngineAsyncWithHttpInfo($engine_id)
     {
-        $returnType = '\Tuningfiles\Model\VdbListSuccess';
-        $request = $this->vdbTypesGetRequest();
+        $returnType = '\Tuningfiles\Model\VdbViewEngine';
+        $request = $this->vdbViewEngineRequest($engine_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2974,16 +2043,23 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Create request for operation 'vdbTypesGet'
+     * Create request for operation 'vdbViewEngine'
      *
+     * @param  int $engine_id Engine ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function vdbTypesGetRequest()
+    protected function vdbViewEngineRequest($engine_id)
     {
+        // verify the required parameter 'engine_id' is set
+        if ($engine_id === null || (is_array($engine_id) && count($engine_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $engine_id when calling vdbViewEngine'
+            );
+        }
 
-        $resourcePath = '/vdb/types';
+        $resourcePath = '/vdb/engines/view/{engine_id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2991,6 +2067,14 @@ class VehicleDatabaseAPIApi
         $multipart = false;
 
 
+        // path params
+        if ($engine_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'engine_id' . '}',
+                ObjectSerializer::toPathValue($engine_id),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;
@@ -3062,7 +2146,923 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Operation vdbTypesIdGet
+     * Operation vdbViewManufacturer
+     *
+     * View manufacturer
+     *
+     * @param  int $manufacturer_id Manufacturer ID (required)
+     *
+     * @throws \Tuningfiles\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Tuningfiles\Model\VdbViewManufacturer
+     */
+    public function vdbViewManufacturer($manufacturer_id)
+    {
+        list($response) = $this->vdbViewManufacturerWithHttpInfo($manufacturer_id);
+        return $response;
+    }
+
+    /**
+     * Operation vdbViewManufacturerWithHttpInfo
+     *
+     * View manufacturer
+     *
+     * @param  int $manufacturer_id Manufacturer ID (required)
+     *
+     * @throws \Tuningfiles\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Tuningfiles\Model\VdbViewManufacturer, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function vdbViewManufacturerWithHttpInfo($manufacturer_id)
+    {
+        $returnType = '\Tuningfiles\Model\VdbViewManufacturer';
+        $request = $this->vdbViewManufacturerRequest($manufacturer_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if (!in_array($returnType, ['string','integer','bool'])) {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Tuningfiles\Model\VdbViewManufacturer',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Tuningfiles\Model\ErrorBadRequest',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Tuningfiles\Model\Error401',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Tuningfiles\Model\ErrorInvalidKey',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Tuningfiles\Model\Error404',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation vdbViewManufacturerAsync
+     *
+     * View manufacturer
+     *
+     * @param  int $manufacturer_id Manufacturer ID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function vdbViewManufacturerAsync($manufacturer_id)
+    {
+        return $this->vdbViewManufacturerAsyncWithHttpInfo($manufacturer_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation vdbViewManufacturerAsyncWithHttpInfo
+     *
+     * View manufacturer
+     *
+     * @param  int $manufacturer_id Manufacturer ID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function vdbViewManufacturerAsyncWithHttpInfo($manufacturer_id)
+    {
+        $returnType = '\Tuningfiles\Model\VdbViewManufacturer';
+        $request = $this->vdbViewManufacturerRequest($manufacturer_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'vdbViewManufacturer'
+     *
+     * @param  int $manufacturer_id Manufacturer ID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function vdbViewManufacturerRequest($manufacturer_id)
+    {
+        // verify the required parameter 'manufacturer_id' is set
+        if ($manufacturer_id === null || (is_array($manufacturer_id) && count($manufacturer_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $manufacturer_id when calling vdbViewManufacturer'
+            );
+        }
+
+        $resourcePath = '/vdb/manufacturers/view/{manufacturer_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($manufacturer_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'manufacturer_id' . '}',
+                ObjectSerializer::toPathValue($manufacturer_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/xml']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/xml'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
+        if ($apiKey !== null) {
+            $headers['x-api-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation vdbViewModel
+     *
+     * View model
+     *
+     * @param  int $model_id Model ID (required)
+     *
+     * @throws \Tuningfiles\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Tuningfiles\Model\VdbViewModel
+     */
+    public function vdbViewModel($model_id)
+    {
+        list($response) = $this->vdbViewModelWithHttpInfo($model_id);
+        return $response;
+    }
+
+    /**
+     * Operation vdbViewModelWithHttpInfo
+     *
+     * View model
+     *
+     * @param  int $model_id Model ID (required)
+     *
+     * @throws \Tuningfiles\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Tuningfiles\Model\VdbViewModel, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function vdbViewModelWithHttpInfo($model_id)
+    {
+        $returnType = '\Tuningfiles\Model\VdbViewModel';
+        $request = $this->vdbViewModelRequest($model_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if (!in_array($returnType, ['string','integer','bool'])) {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Tuningfiles\Model\VdbViewModel',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Tuningfiles\Model\ErrorBadRequest',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Tuningfiles\Model\Error401',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Tuningfiles\Model\ErrorInvalidKey',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Tuningfiles\Model\Error404',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation vdbViewModelAsync
+     *
+     * View model
+     *
+     * @param  int $model_id Model ID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function vdbViewModelAsync($model_id)
+    {
+        return $this->vdbViewModelAsyncWithHttpInfo($model_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation vdbViewModelAsyncWithHttpInfo
+     *
+     * View model
+     *
+     * @param  int $model_id Model ID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function vdbViewModelAsyncWithHttpInfo($model_id)
+    {
+        $returnType = '\Tuningfiles\Model\VdbViewModel';
+        $request = $this->vdbViewModelRequest($model_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'vdbViewModel'
+     *
+     * @param  int $model_id Model ID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function vdbViewModelRequest($model_id)
+    {
+        // verify the required parameter 'model_id' is set
+        if ($model_id === null || (is_array($model_id) && count($model_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $model_id when calling vdbViewModel'
+            );
+        }
+
+        $resourcePath = '/vdb/models/view/{model_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($model_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'model_id' . '}',
+                ObjectSerializer::toPathValue($model_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/xml']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/xml'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
+        if ($apiKey !== null) {
+            $headers['x-api-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation vdbViewPerformance
+     *
+     * View vehicle performance
+     *
+     * @param  int $model_id Model ID (required)
+     * @param  int $engine_id Engine ID (required)
+     *
+     * @throws \Tuningfiles\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Tuningfiles\Model\VdbPerformance
+     */
+    public function vdbViewPerformance($model_id, $engine_id)
+    {
+        list($response) = $this->vdbViewPerformanceWithHttpInfo($model_id, $engine_id);
+        return $response;
+    }
+
+    /**
+     * Operation vdbViewPerformanceWithHttpInfo
+     *
+     * View vehicle performance
+     *
+     * @param  int $model_id Model ID (required)
+     * @param  int $engine_id Engine ID (required)
+     *
+     * @throws \Tuningfiles\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Tuningfiles\Model\VdbPerformance, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function vdbViewPerformanceWithHttpInfo($model_id, $engine_id)
+    {
+        $returnType = '\Tuningfiles\Model\VdbPerformance';
+        $request = $this->vdbViewPerformanceRequest($model_id, $engine_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if (!in_array($returnType, ['string','integer','bool'])) {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Tuningfiles\Model\VdbPerformance',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Tuningfiles\Model\ErrorBadRequest',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Tuningfiles\Model\Error401',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Tuningfiles\Model\ErrorInvalidKey',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Tuningfiles\Model\Error404',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation vdbViewPerformanceAsync
+     *
+     * View vehicle performance
+     *
+     * @param  int $model_id Model ID (required)
+     * @param  int $engine_id Engine ID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function vdbViewPerformanceAsync($model_id, $engine_id)
+    {
+        return $this->vdbViewPerformanceAsyncWithHttpInfo($model_id, $engine_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation vdbViewPerformanceAsyncWithHttpInfo
+     *
+     * View vehicle performance
+     *
+     * @param  int $model_id Model ID (required)
+     * @param  int $engine_id Engine ID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function vdbViewPerformanceAsyncWithHttpInfo($model_id, $engine_id)
+    {
+        $returnType = '\Tuningfiles\Model\VdbPerformance';
+        $request = $this->vdbViewPerformanceRequest($model_id, $engine_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'vdbViewPerformance'
+     *
+     * @param  int $model_id Model ID (required)
+     * @param  int $engine_id Engine ID (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function vdbViewPerformanceRequest($model_id, $engine_id)
+    {
+        // verify the required parameter 'model_id' is set
+        if ($model_id === null || (is_array($model_id) && count($model_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $model_id when calling vdbViewPerformance'
+            );
+        }
+        // verify the required parameter 'engine_id' is set
+        if ($engine_id === null || (is_array($engine_id) && count($engine_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $engine_id when calling vdbViewPerformance'
+            );
+        }
+
+        $resourcePath = '/vdb/performance/{model_id}/{engine_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($model_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'model_id' . '}',
+                ObjectSerializer::toPathValue($model_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($engine_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'engine_id' . '}',
+                ObjectSerializer::toPathValue($engine_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'application/xml']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'application/xml'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
+        if ($apiKey !== null) {
+            $headers['x-api-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation vdbViewType
      *
      * View vehicle type
      *
@@ -3072,14 +3072,14 @@ class VehicleDatabaseAPIApi
      * @throws \InvalidArgumentException
      * @return \Tuningfiles\Model\VdbViewTypesSuccess
      */
-    public function vdbTypesIdGet($type_id)
+    public function vdbViewType($type_id)
     {
-        list($response) = $this->vdbTypesIdGetWithHttpInfo($type_id);
+        list($response) = $this->vdbViewTypeWithHttpInfo($type_id);
         return $response;
     }
 
     /**
-     * Operation vdbTypesIdGetWithHttpInfo
+     * Operation vdbViewTypeWithHttpInfo
      *
      * View vehicle type
      *
@@ -3089,10 +3089,10 @@ class VehicleDatabaseAPIApi
      * @throws \InvalidArgumentException
      * @return array of \Tuningfiles\Model\VdbViewTypesSuccess, HTTP status code, HTTP response headers (array of strings)
      */
-    public function vdbTypesIdGetWithHttpInfo($type_id)
+    public function vdbViewTypeWithHttpInfo($type_id)
     {
         $returnType = '\Tuningfiles\Model\VdbViewTypesSuccess';
-        $request = $this->vdbTypesIdGetRequest($type_id);
+        $request = $this->vdbViewTypeRequest($type_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3178,7 +3178,7 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Operation vdbTypesIdGetAsync
+     * Operation vdbViewTypeAsync
      *
      * View vehicle type
      *
@@ -3187,9 +3187,9 @@ class VehicleDatabaseAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function vdbTypesIdGetAsync($type_id)
+    public function vdbViewTypeAsync($type_id)
     {
-        return $this->vdbTypesIdGetAsyncWithHttpInfo($type_id)
+        return $this->vdbViewTypeAsyncWithHttpInfo($type_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3198,7 +3198,7 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Operation vdbTypesIdGetAsyncWithHttpInfo
+     * Operation vdbViewTypeAsyncWithHttpInfo
      *
      * View vehicle type
      *
@@ -3207,10 +3207,10 @@ class VehicleDatabaseAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function vdbTypesIdGetAsyncWithHttpInfo($type_id)
+    public function vdbViewTypeAsyncWithHttpInfo($type_id)
     {
         $returnType = '\Tuningfiles\Model\VdbViewTypesSuccess';
-        $request = $this->vdbTypesIdGetRequest($type_id);
+        $request = $this->vdbViewTypeRequest($type_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3250,19 +3250,19 @@ class VehicleDatabaseAPIApi
     }
 
     /**
-     * Create request for operation 'vdbTypesIdGet'
+     * Create request for operation 'vdbViewType'
      *
      * @param  int $type_id Vehicle type ID (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function vdbTypesIdGetRequest($type_id)
+    protected function vdbViewTypeRequest($type_id)
     {
         // verify the required parameter 'type_id' is set
         if ($type_id === null || (is_array($type_id) && count($type_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $type_id when calling vdbTypesIdGet'
+                'Missing the required parameter $type_id when calling vdbViewType'
             );
         }
 

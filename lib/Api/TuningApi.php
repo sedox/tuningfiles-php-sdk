@@ -1,6 +1,6 @@
 <?php
 /**
- * TuningAPIApi
+ * TuningApi
  * PHP version 5
  *
  * @category Class
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Tuningfiles\Tuningfiles;
+namespace Tuningfiles\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -39,14 +39,14 @@ use Tuningfiles\HeaderSelector;
 use Tuningfiles\ObjectSerializer;
 
 /**
- * TuningAPIApi Class Doc Comment
+ * TuningApi Class Doc Comment
  *
  * @category Class
  * @package  Tuningfiles
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class TuningAPIApi
+class TuningApi
 {
     /**
      * @var ClientInterface
@@ -87,7 +87,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation attachmentsUpload
+     * Operation attachmentUpload
      *
      * Upload attachment
      *
@@ -97,14 +97,14 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \Tuningfiles\Model\AttachmentsUpload
      */
-    public function attachmentsUpload($file = null)
+    public function attachmentUpload($file = null)
     {
-        list($response) = $this->attachmentsUploadWithHttpInfo($file);
+        list($response) = $this->attachmentUploadWithHttpInfo($file);
         return $response;
     }
 
     /**
-     * Operation attachmentsUploadWithHttpInfo
+     * Operation attachmentUploadWithHttpInfo
      *
      * Upload attachment
      *
@@ -114,10 +114,10 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return array of \Tuningfiles\Model\AttachmentsUpload, HTTP status code, HTTP response headers (array of strings)
      */
-    public function attachmentsUploadWithHttpInfo($file = null)
+    public function attachmentUploadWithHttpInfo($file = null)
     {
         $returnType = '\Tuningfiles\Model\AttachmentsUpload';
-        $request = $this->attachmentsUploadRequest($file);
+        $request = $this->attachmentUploadRequest($file);
 
         try {
             $options = $this->createHttpClientOption();
@@ -203,7 +203,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation attachmentsUploadAsync
+     * Operation attachmentUploadAsync
      *
      * Upload attachment
      *
@@ -212,9 +212,9 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function attachmentsUploadAsync($file = null)
+    public function attachmentUploadAsync($file = null)
     {
-        return $this->attachmentsUploadAsyncWithHttpInfo($file)
+        return $this->attachmentUploadAsyncWithHttpInfo($file)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -223,7 +223,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation attachmentsUploadAsyncWithHttpInfo
+     * Operation attachmentUploadAsyncWithHttpInfo
      *
      * Upload attachment
      *
@@ -232,10 +232,10 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function attachmentsUploadAsyncWithHttpInfo($file = null)
+    public function attachmentUploadAsyncWithHttpInfo($file = null)
     {
         $returnType = '\Tuningfiles\Model\AttachmentsUpload';
-        $request = $this->attachmentsUploadRequest($file);
+        $request = $this->attachmentUploadRequest($file);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -275,14 +275,14 @@ class TuningAPIApi
     }
 
     /**
-     * Create request for operation 'attachmentsUpload'
+     * Create request for operation 'attachmentUpload'
      *
      * @param  string $file (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function attachmentsUploadRequest($file = null)
+    protected function attachmentUploadRequest($file = null)
     {
 
         $resourcePath = '/attachments/upload';
@@ -368,7 +368,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation downloadGet
+     * Operation fileDownload
      *
      * Download file
      *
@@ -380,14 +380,14 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function downloadGet($file_id, $project_id, $json = null)
+    public function fileDownload($file_id, $project_id, $json = null)
     {
-        list($response) = $this->downloadGetWithHttpInfo($file_id, $project_id, $json);
+        list($response) = $this->fileDownloadWithHttpInfo($file_id, $project_id, $json);
         return $response;
     }
 
     /**
-     * Operation downloadGetWithHttpInfo
+     * Operation fileDownloadWithHttpInfo
      *
      * Download file
      *
@@ -399,10 +399,10 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function downloadGetWithHttpInfo($file_id, $project_id, $json = null)
+    public function fileDownloadWithHttpInfo($file_id, $project_id, $json = null)
     {
         $returnType = 'string';
-        $request = $this->downloadGetRequest($file_id, $project_id, $json);
+        $request = $this->fileDownloadRequest($file_id, $project_id, $json);
 
         try {
             $options = $this->createHttpClientOption();
@@ -488,7 +488,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation downloadGetAsync
+     * Operation fileDownloadAsync
      *
      * Download file
      *
@@ -499,9 +499,9 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function downloadGetAsync($file_id, $project_id, $json = null)
+    public function fileDownloadAsync($file_id, $project_id, $json = null)
     {
-        return $this->downloadGetAsyncWithHttpInfo($file_id, $project_id, $json)
+        return $this->fileDownloadAsyncWithHttpInfo($file_id, $project_id, $json)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -510,7 +510,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation downloadGetAsyncWithHttpInfo
+     * Operation fileDownloadAsyncWithHttpInfo
      *
      * Download file
      *
@@ -521,10 +521,10 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function downloadGetAsyncWithHttpInfo($file_id, $project_id, $json = null)
+    public function fileDownloadAsyncWithHttpInfo($file_id, $project_id, $json = null)
     {
         $returnType = 'string';
-        $request = $this->downloadGetRequest($file_id, $project_id, $json);
+        $request = $this->fileDownloadRequest($file_id, $project_id, $json);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -564,7 +564,7 @@ class TuningAPIApi
     }
 
     /**
-     * Create request for operation 'downloadGet'
+     * Create request for operation 'fileDownload'
      *
      * @param  int $file_id File ID (required)
      * @param  int $project_id Project ID (required)
@@ -573,18 +573,18 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function downloadGetRequest($file_id, $project_id, $json = null)
+    protected function fileDownloadRequest($file_id, $project_id, $json = null)
     {
         // verify the required parameter 'file_id' is set
         if ($file_id === null || (is_array($file_id) && count($file_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $file_id when calling downloadGet'
+                'Missing the required parameter $file_id when calling fileDownload'
             );
         }
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling downloadGet'
+                'Missing the required parameter $project_id when calling fileDownload'
             );
         }
 
@@ -687,7 +687,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation filePurchaseGet
+     * Operation filePurchase
      *
      * Purchase file
      *
@@ -698,14 +698,14 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \Tuningfiles\Model\FilesPurchase
      */
-    public function filePurchaseGet($file_id, $project_id)
+    public function filePurchase($file_id, $project_id)
     {
-        list($response) = $this->filePurchaseGetWithHttpInfo($file_id, $project_id);
+        list($response) = $this->filePurchaseWithHttpInfo($file_id, $project_id);
         return $response;
     }
 
     /**
-     * Operation filePurchaseGetWithHttpInfo
+     * Operation filePurchaseWithHttpInfo
      *
      * Purchase file
      *
@@ -716,10 +716,10 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return array of \Tuningfiles\Model\FilesPurchase, HTTP status code, HTTP response headers (array of strings)
      */
-    public function filePurchaseGetWithHttpInfo($file_id, $project_id)
+    public function filePurchaseWithHttpInfo($file_id, $project_id)
     {
         $returnType = '\Tuningfiles\Model\FilesPurchase';
-        $request = $this->filePurchaseGetRequest($file_id, $project_id);
+        $request = $this->filePurchaseRequest($file_id, $project_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -805,7 +805,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation filePurchaseGetAsync
+     * Operation filePurchaseAsync
      *
      * Purchase file
      *
@@ -815,9 +815,9 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function filePurchaseGetAsync($file_id, $project_id)
+    public function filePurchaseAsync($file_id, $project_id)
     {
-        return $this->filePurchaseGetAsyncWithHttpInfo($file_id, $project_id)
+        return $this->filePurchaseAsyncWithHttpInfo($file_id, $project_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -826,7 +826,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation filePurchaseGetAsyncWithHttpInfo
+     * Operation filePurchaseAsyncWithHttpInfo
      *
      * Purchase file
      *
@@ -836,10 +836,10 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function filePurchaseGetAsyncWithHttpInfo($file_id, $project_id)
+    public function filePurchaseAsyncWithHttpInfo($file_id, $project_id)
     {
         $returnType = '\Tuningfiles\Model\FilesPurchase';
-        $request = $this->filePurchaseGetRequest($file_id, $project_id);
+        $request = $this->filePurchaseRequest($file_id, $project_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -879,7 +879,7 @@ class TuningAPIApi
     }
 
     /**
-     * Create request for operation 'filePurchaseGet'
+     * Create request for operation 'filePurchase'
      *
      * @param  int $file_id File ID (required)
      * @param  int $project_id Project ID (required)
@@ -887,18 +887,18 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function filePurchaseGetRequest($file_id, $project_id)
+    protected function filePurchaseRequest($file_id, $project_id)
     {
         // verify the required parameter 'file_id' is set
         if ($file_id === null || (is_array($file_id) && count($file_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $file_id when calling filePurchaseGet'
+                'Missing the required parameter $file_id when calling filePurchase'
             );
         }
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling filePurchaseGet'
+                'Missing the required parameter $project_id when calling filePurchase'
             );
         }
 
@@ -997,7 +997,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation filesUpload
+     * Operation fileUpload
      *
      * Upload original file
      *
@@ -1007,14 +1007,14 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \Tuningfiles\Model\FilesUpload
      */
-    public function filesUpload($file = null)
+    public function fileUpload($file = null)
     {
-        list($response) = $this->filesUploadWithHttpInfo($file);
+        list($response) = $this->fileUploadWithHttpInfo($file);
         return $response;
     }
 
     /**
-     * Operation filesUploadWithHttpInfo
+     * Operation fileUploadWithHttpInfo
      *
      * Upload original file
      *
@@ -1024,10 +1024,10 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return array of \Tuningfiles\Model\FilesUpload, HTTP status code, HTTP response headers (array of strings)
      */
-    public function filesUploadWithHttpInfo($file = null)
+    public function fileUploadWithHttpInfo($file = null)
     {
         $returnType = '\Tuningfiles\Model\FilesUpload';
-        $request = $this->filesUploadRequest($file);
+        $request = $this->fileUploadRequest($file);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1113,7 +1113,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation filesUploadAsync
+     * Operation fileUploadAsync
      *
      * Upload original file
      *
@@ -1122,9 +1122,9 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function filesUploadAsync($file = null)
+    public function fileUploadAsync($file = null)
     {
-        return $this->filesUploadAsyncWithHttpInfo($file)
+        return $this->fileUploadAsyncWithHttpInfo($file)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1133,7 +1133,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation filesUploadAsyncWithHttpInfo
+     * Operation fileUploadAsyncWithHttpInfo
      *
      * Upload original file
      *
@@ -1142,10 +1142,10 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function filesUploadAsyncWithHttpInfo($file = null)
+    public function fileUploadAsyncWithHttpInfo($file = null)
     {
         $returnType = '\Tuningfiles\Model\FilesUpload';
-        $request = $this->filesUploadRequest($file);
+        $request = $this->fileUploadRequest($file);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1185,14 +1185,14 @@ class TuningAPIApi
     }
 
     /**
-     * Create request for operation 'filesUpload'
+     * Create request for operation 'fileUpload'
      *
      * @param  string $file (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function filesUploadRequest($file = null)
+    protected function fileUploadRequest($file = null)
     {
 
         $resourcePath = '/files/upload';
@@ -1278,7 +1278,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation notificationChannels
+     * Operation notificationChannelsList
      *
      * View notification channels
      *
@@ -1287,14 +1287,14 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \Tuningfiles\Model\NotificationChannels
      */
-    public function notificationChannels()
+    public function notificationChannelsList()
     {
-        list($response) = $this->notificationChannelsWithHttpInfo();
+        list($response) = $this->notificationChannelsListWithHttpInfo();
         return $response;
     }
 
     /**
-     * Operation notificationChannelsWithHttpInfo
+     * Operation notificationChannelsListWithHttpInfo
      *
      * View notification channels
      *
@@ -1303,10 +1303,10 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return array of \Tuningfiles\Model\NotificationChannels, HTTP status code, HTTP response headers (array of strings)
      */
-    public function notificationChannelsWithHttpInfo()
+    public function notificationChannelsListWithHttpInfo()
     {
         $returnType = '\Tuningfiles\Model\NotificationChannels';
-        $request = $this->notificationChannelsRequest();
+        $request = $this->notificationChannelsListRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -1376,7 +1376,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation notificationChannelsAsync
+     * Operation notificationChannelsListAsync
      *
      * View notification channels
      *
@@ -1384,9 +1384,9 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function notificationChannelsAsync()
+    public function notificationChannelsListAsync()
     {
-        return $this->notificationChannelsAsyncWithHttpInfo()
+        return $this->notificationChannelsListAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1395,7 +1395,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation notificationChannelsAsyncWithHttpInfo
+     * Operation notificationChannelsListAsyncWithHttpInfo
      *
      * View notification channels
      *
@@ -1403,10 +1403,10 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function notificationChannelsAsyncWithHttpInfo()
+    public function notificationChannelsListAsyncWithHttpInfo()
     {
         $returnType = '\Tuningfiles\Model\NotificationChannels';
-        $request = $this->notificationChannelsRequest();
+        $request = $this->notificationChannelsListRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1446,13 +1446,13 @@ class TuningAPIApi
     }
 
     /**
-     * Create request for operation 'notificationChannels'
+     * Create request for operation 'notificationChannelsList'
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function notificationChannelsRequest()
+    protected function notificationChannelsListRequest()
     {
 
         $resourcePath = '/notification-channels';
@@ -1534,7 +1534,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation readTools
+     * Operation readToolsList
      *
      * View available read tools
      *
@@ -1543,14 +1543,14 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \Tuningfiles\Model\ReadTools
      */
-    public function readTools()
+    public function readToolsList()
     {
-        list($response) = $this->readToolsWithHttpInfo();
+        list($response) = $this->readToolsListWithHttpInfo();
         return $response;
     }
 
     /**
-     * Operation readToolsWithHttpInfo
+     * Operation readToolsListWithHttpInfo
      *
      * View available read tools
      *
@@ -1559,10 +1559,10 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return array of \Tuningfiles\Model\ReadTools, HTTP status code, HTTP response headers (array of strings)
      */
-    public function readToolsWithHttpInfo()
+    public function readToolsListWithHttpInfo()
     {
         $returnType = '\Tuningfiles\Model\ReadTools';
-        $request = $this->readToolsRequest();
+        $request = $this->readToolsListRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -1632,7 +1632,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation readToolsAsync
+     * Operation readToolsListAsync
      *
      * View available read tools
      *
@@ -1640,9 +1640,9 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function readToolsAsync()
+    public function readToolsListAsync()
     {
-        return $this->readToolsAsyncWithHttpInfo()
+        return $this->readToolsListAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1651,7 +1651,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation readToolsAsyncWithHttpInfo
+     * Operation readToolsListAsyncWithHttpInfo
      *
      * View available read tools
      *
@@ -1659,10 +1659,10 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function readToolsAsyncWithHttpInfo()
+    public function readToolsListAsyncWithHttpInfo()
     {
         $returnType = '\Tuningfiles\Model\ReadTools';
-        $request = $this->readToolsRequest();
+        $request = $this->readToolsListRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1702,13 +1702,13 @@ class TuningAPIApi
     }
 
     /**
-     * Create request for operation 'readTools'
+     * Create request for operation 'readToolsList'
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function readToolsRequest()
+    protected function readToolsListRequest()
     {
 
         $resourcePath = '/read-tools';
@@ -1790,7 +1790,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation remapsGet
+     * Operation remapsList
      *
      * View available remaps
      *
@@ -1800,14 +1800,14 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \Tuningfiles\Model\Remaps[]
      */
-    public function remapsGet($vehicle_type_id)
+    public function remapsList($vehicle_type_id)
     {
-        list($response) = $this->remapsGetWithHttpInfo($vehicle_type_id);
+        list($response) = $this->remapsListWithHttpInfo($vehicle_type_id);
         return $response;
     }
 
     /**
-     * Operation remapsGetWithHttpInfo
+     * Operation remapsListWithHttpInfo
      *
      * View available remaps
      *
@@ -1817,10 +1817,10 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return array of \Tuningfiles\Model\Remaps[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function remapsGetWithHttpInfo($vehicle_type_id)
+    public function remapsListWithHttpInfo($vehicle_type_id)
     {
         $returnType = '\Tuningfiles\Model\Remaps[]';
-        $request = $this->remapsGetRequest($vehicle_type_id);
+        $request = $this->remapsListRequest($vehicle_type_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1906,7 +1906,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation remapsGetAsync
+     * Operation remapsListAsync
      *
      * View available remaps
      *
@@ -1915,9 +1915,9 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function remapsGetAsync($vehicle_type_id)
+    public function remapsListAsync($vehicle_type_id)
     {
-        return $this->remapsGetAsyncWithHttpInfo($vehicle_type_id)
+        return $this->remapsListAsyncWithHttpInfo($vehicle_type_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1926,7 +1926,7 @@ class TuningAPIApi
     }
 
     /**
-     * Operation remapsGetAsyncWithHttpInfo
+     * Operation remapsListAsyncWithHttpInfo
      *
      * View available remaps
      *
@@ -1935,10 +1935,10 @@ class TuningAPIApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function remapsGetAsyncWithHttpInfo($vehicle_type_id)
+    public function remapsListAsyncWithHttpInfo($vehicle_type_id)
     {
         $returnType = '\Tuningfiles\Model\Remaps[]';
-        $request = $this->remapsGetRequest($vehicle_type_id);
+        $request = $this->remapsListRequest($vehicle_type_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1978,19 +1978,19 @@ class TuningAPIApi
     }
 
     /**
-     * Create request for operation 'remapsGet'
+     * Create request for operation 'remapsList'
      *
      * @param  int $vehicle_type_id Vehicle type (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function remapsGetRequest($vehicle_type_id)
+    protected function remapsListRequest($vehicle_type_id)
     {
         // verify the required parameter 'vehicle_type_id' is set
         if ($vehicle_type_id === null || (is_array($vehicle_type_id) && count($vehicle_type_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $vehicle_type_id when calling remapsGet'
+                'Missing the required parameter $vehicle_type_id when calling remapsList'
             );
         }
 

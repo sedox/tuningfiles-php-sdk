@@ -1,19 +1,19 @@
-# Tuningfiles\TuningAPIApi
+# Tuningfiles\TuningApi
 
 All URIs are relative to *https://api.tuningfiles.com/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**attachmentsUpload**](TuningAPIApi.md#attachmentsUpload) | **POST** /attachments/upload | Upload attachment
-[**downloadGet**](TuningAPIApi.md#downloadGet) | **GET** /files/download/{file_id}/{project_id} | Download file
-[**filePurchaseGet**](TuningAPIApi.md#filePurchaseGet) | **GET** /files/purchase/{file_id}/{project_id} | Purchase file
-[**filesUpload**](TuningAPIApi.md#filesUpload) | **POST** /files/upload | Upload original file
-[**notificationChannels**](TuningAPIApi.md#notificationChannels) | **GET** /notification-channels | View notification channels
-[**readTools**](TuningAPIApi.md#readTools) | **GET** /read-tools | View available read tools
-[**remapsGet**](TuningAPIApi.md#remapsGet) | **GET** /remaps/{vehicle_type_id} | View available remaps
+[**attachmentUpload**](TuningApi.md#attachmentUpload) | **POST** /attachments/upload | Upload attachment
+[**fileDownload**](TuningApi.md#fileDownload) | **GET** /files/download/{file_id}/{project_id} | Download file
+[**filePurchase**](TuningApi.md#filePurchase) | **GET** /files/purchase/{file_id}/{project_id} | Purchase file
+[**fileUpload**](TuningApi.md#fileUpload) | **POST** /files/upload | Upload original file
+[**notificationChannelsList**](TuningApi.md#notificationChannelsList) | **GET** /notification-channels | View notification channels
+[**readToolsList**](TuningApi.md#readToolsList) | **GET** /read-tools | View available read tools
+[**remapsList**](TuningApi.md#remapsList) | **GET** /remaps/{vehicle_type_id} | View available remaps
 
-# **attachmentsUpload**
-> \Tuningfiles\Model\AttachmentsUpload attachmentsUpload($file)
+# **attachmentUpload**
+> \Tuningfiles\Model\AttachmentsUpload attachmentUpload($file)
 
 Upload attachment
 
@@ -28,7 +28,7 @@ $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Tuningfiles\Tuningfiles\TuningAPIApi(
+$apiInstance = new Tuningfiles\Api\TuningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -37,10 +37,10 @@ $apiInstance = new Tuningfiles\Tuningfiles\TuningAPIApi(
 $file = "file_example"; // string | 
 
 try {
-    $result = $apiInstance->attachmentsUpload($file);
+    $result = $apiInstance->attachmentUpload($file);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TuningAPIApi->attachmentsUpload: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TuningApi->attachmentUpload: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -66,8 +66,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **downloadGet**
-> string downloadGet($file_id, $project_id, $json)
+# **fileDownload**
+> string fileDownload($file_id, $project_id, $json)
 
 Download file
 
@@ -82,7 +82,7 @@ $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Tuningfiles\Tuningfiles\TuningAPIApi(
+$apiInstance = new Tuningfiles\Api\TuningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -93,10 +93,10 @@ $project_id = 789; // int | Project ID
 $json = true; // bool | By default response will return a file. If you wish to return json data, use this parameter. In this case, API will return json data where \"filename\" will be the name of the file and \"data\" will be the Base64-encoded contents of the file.
 
 try {
-    $result = $apiInstance->downloadGet($file_id, $project_id, $json);
+    $result = $apiInstance->fileDownload($file_id, $project_id, $json);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TuningAPIApi->downloadGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TuningApi->fileDownload: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -124,8 +124,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **filePurchaseGet**
-> \Tuningfiles\Model\FilesPurchase filePurchaseGet($file_id, $project_id)
+# **filePurchase**
+> \Tuningfiles\Model\FilesPurchase filePurchase($file_id, $project_id)
 
 Purchase file
 
@@ -140,7 +140,7 @@ $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Tuningfiles\Tuningfiles\TuningAPIApi(
+$apiInstance = new Tuningfiles\Api\TuningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -150,10 +150,10 @@ $file_id = 789; // int | File ID
 $project_id = 789; // int | Project ID
 
 try {
-    $result = $apiInstance->filePurchaseGet($file_id, $project_id);
+    $result = $apiInstance->filePurchase($file_id, $project_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TuningAPIApi->filePurchaseGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TuningApi->filePurchase: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -180,8 +180,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **filesUpload**
-> \Tuningfiles\Model\FilesUpload filesUpload($file)
+# **fileUpload**
+> \Tuningfiles\Model\FilesUpload fileUpload($file)
 
 Upload original file
 
@@ -196,7 +196,7 @@ $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Tuningfiles\Tuningfiles\TuningAPIApi(
+$apiInstance = new Tuningfiles\Api\TuningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -205,10 +205,10 @@ $apiInstance = new Tuningfiles\Tuningfiles\TuningAPIApi(
 $file = "file_example"; // string | 
 
 try {
-    $result = $apiInstance->filesUpload($file);
+    $result = $apiInstance->fileUpload($file);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TuningAPIApi->filesUpload: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TuningApi->fileUpload: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -234,8 +234,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **notificationChannels**
-> \Tuningfiles\Model\NotificationChannels notificationChannels()
+# **notificationChannelsList**
+> \Tuningfiles\Model\NotificationChannels notificationChannelsList()
 
 View notification channels
 
@@ -250,7 +250,7 @@ $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Tuningfiles\Tuningfiles\TuningAPIApi(
+$apiInstance = new Tuningfiles\Api\TuningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -258,10 +258,10 @@ $apiInstance = new Tuningfiles\Tuningfiles\TuningAPIApi(
 );
 
 try {
-    $result = $apiInstance->notificationChannels();
+    $result = $apiInstance->notificationChannelsList();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TuningAPIApi->notificationChannels: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TuningApi->notificationChannelsList: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -284,8 +284,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **readTools**
-> \Tuningfiles\Model\ReadTools readTools()
+# **readToolsList**
+> \Tuningfiles\Model\ReadTools readToolsList()
 
 View available read tools
 
@@ -300,7 +300,7 @@ $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Tuningfiles\Tuningfiles\TuningAPIApi(
+$apiInstance = new Tuningfiles\Api\TuningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -308,10 +308,10 @@ $apiInstance = new Tuningfiles\Tuningfiles\TuningAPIApi(
 );
 
 try {
-    $result = $apiInstance->readTools();
+    $result = $apiInstance->readToolsList();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TuningAPIApi->readTools: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TuningApi->readToolsList: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -334,8 +334,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **remapsGet**
-> \Tuningfiles\Model\Remaps[] remapsGet($vehicle_type_id)
+# **remapsList**
+> \Tuningfiles\Model\Remaps[] remapsList($vehicle_type_id)
 
 View available remaps
 
@@ -350,7 +350,7 @@ $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
-$apiInstance = new Tuningfiles\Tuningfiles\TuningAPIApi(
+$apiInstance = new Tuningfiles\Api\TuningApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -359,10 +359,10 @@ $apiInstance = new Tuningfiles\Tuningfiles\TuningAPIApi(
 $vehicle_type_id = 789; // int | Vehicle type
 
 try {
-    $result = $apiInstance->remapsGet($vehicle_type_id);
+    $result = $apiInstance->remapsList($vehicle_type_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TuningAPIApi->remapsGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TuningApi->remapsList: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
