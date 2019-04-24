@@ -17,7 +17,7 @@ Method | HTTP request | Description
 [**vdbViewType**](VehicleDatabaseApi.md#vdbViewType) | **GET** /vdb/types/{type_id} | View vehicle type
 
 # **vdbEnginesSearch**
-> \Tuningfiles\Model\VdbListEngines vdbEnginesSearch($query, $fuel)
+> \Tuningfiles\Model\VdbEngine[] vdbEnginesSearch($query, $fuel)
 
 Search engine
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Tuningfiles\Model\VdbListEngines**](../Model/VdbListEngines.md)
+[**\Tuningfiles\Model\VdbEngine[]**](../Model/VdbEngine.md)
 
 ### Authorization
 
@@ -68,12 +68,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **vdbListEngines**
-> \Tuningfiles\Model\VdbListEngines vdbListEngines($model_id)
+> \Tuningfiles\Model\VdbEngine[] vdbListEngines($model_id)
 
 List engines
 
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Tuningfiles\Model\VdbListEngines**](../Model/VdbListEngines.md)
+[**\Tuningfiles\Model\VdbEngine[]**](../Model/VdbEngine.md)
 
 ### Authorization
 
@@ -122,12 +122,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **vdbListManufacturers**
-> \Tuningfiles\Model\VdbListManufacturers vdbListManufacturers($vehicle_type_id)
+> \Tuningfiles\Model\VdbManufacturer[] vdbListManufacturers($vehicle_type_id)
 
 List manufacturers
 
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Tuningfiles\Model\VdbListManufacturers**](../Model/VdbListManufacturers.md)
+[**\Tuningfiles\Model\VdbManufacturer[]**](../Model/VdbManufacturer.md)
 
 ### Authorization
 
@@ -176,12 +176,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **vdbListModels**
-> \Tuningfiles\Model\VdbListModels vdbListModels($manufacturer_id)
+> \Tuningfiles\Model\VdbModel[] vdbListModels($manufacturer_id)
 
 List models
 
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Tuningfiles\Model\VdbListModels**](../Model/VdbListModels.md)
+[**\Tuningfiles\Model\VdbModel[]**](../Model/VdbModel.md)
 
 ### Authorization
 
@@ -230,12 +230,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **vdbListTypes**
-> \Tuningfiles\Model\VdbListSuccess vdbListTypes()
+> \Tuningfiles\Model\VdbVehicleType[] vdbListTypes()
 
 List vehicle types
 
@@ -271,7 +271,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Tuningfiles\Model\VdbListSuccess**](../Model/VdbListSuccess.md)
+[**\Tuningfiles\Model\VdbVehicleType[]**](../Model/VdbVehicleType.md)
 
 ### Authorization
 
@@ -280,7 +280,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -334,12 +334,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **vdbViewEngine**
-> \Tuningfiles\Model\VdbViewEngine vdbViewEngine($engine_id)
+> \Tuningfiles\Model\VdbEngineInfo vdbViewEngine($engine_id)
 
 View engine
 
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Tuningfiles\Model\VdbViewEngine**](../Model/VdbViewEngine.md)
+[**\Tuningfiles\Model\VdbEngineInfo**](../Model/VdbEngineInfo.md)
 
 ### Authorization
 
@@ -388,12 +388,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **vdbViewManufacturer**
-> \Tuningfiles\Model\VdbViewManufacturer vdbViewManufacturer($manufacturer_id)
+> \Tuningfiles\Model\VdbManufacturer vdbViewManufacturer($manufacturer_id)
 
 View manufacturer
 
@@ -433,7 +433,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Tuningfiles\Model\VdbViewManufacturer**](../Model/VdbViewManufacturer.md)
+[**\Tuningfiles\Model\VdbManufacturer**](../Model/VdbManufacturer.md)
 
 ### Authorization
 
@@ -442,12 +442,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **vdbViewModel**
-> \Tuningfiles\Model\VdbViewModel vdbViewModel($model_id)
+> \Tuningfiles\Model\VdbModel vdbViewModel($model_id)
 
 View model
 
@@ -487,7 +487,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Tuningfiles\Model\VdbViewModel**](../Model/VdbViewModel.md)
+[**\Tuningfiles\Model\VdbModel**](../Model/VdbModel.md)
 
 ### Authorization
 
@@ -496,7 +496,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -552,12 +552,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **vdbViewType**
-> \Tuningfiles\Model\VdbViewTypesSuccess vdbViewType($type_id)
+> \Tuningfiles\Model\VdbVehicleType vdbViewType($type_id)
 
 View vehicle type
 
@@ -597,7 +597,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Tuningfiles\Model\VdbViewTypesSuccess**](../Model/VdbViewTypesSuccess.md)
+[**\Tuningfiles\Model\VdbVehicleType**](../Model/VdbVehicleType.md)
 
 ### Authorization
 
@@ -606,7 +606,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/xml
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
