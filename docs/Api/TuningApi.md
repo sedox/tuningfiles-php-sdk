@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**projectsList**](TuningApi.md#projectsList) | **GET** /projects | List projects
 [**readToolsList**](TuningApi.md#readToolsList) | **GET** /vehicles/read-tools | List available read tools
 [**remapsList**](TuningApi.md#remapsList) | **GET** /vehicles/remaps/{vehicle_type_id} | List available remaps
+[**tuningSubscription**](TuningApi.md#tuningSubscription) | **GET** /subscription | Check for active subscription
 [**vehiclesEnginesList**](TuningApi.md#vehiclesEnginesList) | **GET** /vehicles/engines/{model_id} | List vehicle engines
 [**vehiclesManufacturersList**](TuningApi.md#vehiclesManufacturersList) | **GET** /vehicles/manufacturers/{vehicle_type_id} | List vehicle manufacturers
 [**vehiclesModelsList**](TuningApi.md#vehiclesModelsList) | **GET** /vehicles/models/{manufacturer_id} | List vehicle models
@@ -464,7 +465,7 @@ $apiInstance = new Tuningfiles\Api\TuningApi(
     new GuzzleHttp\Client(),
     $config
 );
-$per_page = 789; // int | Projects per page
+$per_page = new \Tuningfiles\Model\BigDecimal(); // BigDecimal | Projects per page
 $page = 789; // int | Page number
 
 try {
@@ -480,7 +481,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **per_page** | **int**| Projects per page | [optional]
+ **per_page** | **BigDecimal**| Projects per page | [optional]
  **page** | **int**| Page number | [optional]
 
 ### Return type
@@ -570,7 +571,7 @@ $apiInstance = new Tuningfiles\Api\TuningApi(
     new GuzzleHttp\Client(),
     $config
 );
-$vehicle_type_id = 789; // int | Vehicle type
+$vehicle_type_id = new \Tuningfiles\Model\BigDecimal(); // BigDecimal | Vehicle type
 
 try {
     $result = $apiInstance->remapsList($vehicle_type_id);
@@ -585,11 +586,61 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vehicle_type_id** | **int**| Vehicle type |
+ **vehicle_type_id** | **BigDecimal**| Vehicle type |
 
 ### Return type
 
 [**\Tuningfiles\Model\VehicleRemaps**](../Model/VehicleRemaps.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **tuningSubscription**
+> \Tuningfiles\Model\Subscription tuningSubscription()
+
+Check for active subscription
+
+This method allows you to check if authenticated API Key have access to the Tuning API
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: api_key
+$config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+$apiInstance = new Tuningfiles\Api\TuningApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->tuningSubscription();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TuningApi->tuningSubscription: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\Tuningfiles\Model\Subscription**](../Model/Subscription.md)
 
 ### Authorization
 

@@ -1,22 +1,19 @@
 {
     "name": "sedox/tuningfiles-php-sdk",
-    "version": "1.0",
+    "version": "1.0.1",
     "description": "",
     "keywords": [
-        "tuning",
-        "tuningfiles",
-        "remap",
-        "chiptuning",
+        "swagger",
         "php",
         "sdk",
         "api"
     ],
-    "homepage": "https://docs.tuningfiles.com/api",
+    "homepage": "http://swagger.io",
     "license": "proprietary",
     "authors": [
         {
-            "name": "Sedox Performance AS",
-            "homepage": "https://tuningfiles.com"
+            "name": "Swagger and contributors",
+            "homepage": "https://github.com/swagger-api/swagger-codegen"
         }
     ],
     "require": {
@@ -32,7 +29,7 @@
         "friendsofphp/php-cs-fixer": "~1.12"
     },
     "autoload": {
-        "psr-4": { "Tuningfiles\\" : "lib/" }
+        "psr-4": { "Tuningfiles\\" : "/" }
     },
     "autoload-dev": {
         "psr-4": { "Tuningfiles\\" : "test/" }
