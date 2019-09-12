@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **uuid** | **string** | Project v4 UUID. | [optional] 
 **name** | **string** | Project name. | [optional] 
 **status** | **string** | Project status. Can be: \&quot;Waiting\&quot;, \&quot;In Progress\&quot;, \&quot;Finished\&quot;. | [optional] 
-**status_code** | [**BigDecimal**](BigDecimal.md) | Project status code. Can be: 0 &#x3D; \&quot;Waiting\&quot;; 1 &#x3D; \&quot;In Progress\&quot;; 2 &#x3D; \&quot;Finished\&quot;. | [optional] 
+**status_code** | **float** | Project status code. Can be: 0 &#x3D; \&quot;Waiting\&quot;; 1 &#x3D; \&quot;In Progress\&quot;; 2 &#x3D; \&quot;Finished\&quot;. | [optional] 
 **vehicle_data** | [**\Tuningfiles\Model\ProjectVehicleData[]**](ProjectVehicleData.md) |  | [optional] 
 **read_tool** | **string** | Read tool used for reading the ECU. | [optional] 
 **read_tool_id** | **int** |  | [optional] 

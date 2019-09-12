@@ -5,16 +5,18 @@ All URIs are relative to *https://api.tuningfiles.com/*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**vdbEnginesSearch**](VehicleDatabaseApi.md#vdbEnginesSearch) | **GET** /vdb/engines/search | Search engine
-[**vdbListEngines**](VehicleDatabaseApi.md#vdbListEngines) | **GET** /vdb/engines/{model_id} | List engines
+[**vdbListEngines**](VehicleDatabaseApi.md#vdbListEngines) | **GET** /vdb/engines/{generation_id} | List engines
+[**vdbListGenerations**](VehicleDatabaseApi.md#vdbListGenerations) | **GET** /vdb/generations/{model_id} | List model generations
 [**vdbListManufacturers**](VehicleDatabaseApi.md#vdbListManufacturers) | **GET** /vdb/manufacturers/{vehicle_type_id} | List manufacturers
 [**vdbListModels**](VehicleDatabaseApi.md#vdbListModels) | **GET** /vdb/models/{manufacturer_id} | List models
 [**vdbListTypes**](VehicleDatabaseApi.md#vdbListTypes) | **GET** /vdb/types | List vehicle types
 [**vdbSearch**](VehicleDatabaseApi.md#vdbSearch) | **GET** /vdb/search | Search
 [**vdbSubscription**](VehicleDatabaseApi.md#vdbSubscription) | **GET** /vdb/subscription | Check for active subscription
 [**vdbViewEngine**](VehicleDatabaseApi.md#vdbViewEngine) | **GET** /vdb/engines/view/{engine_id} | View engine
+[**vdbViewGeneration**](VehicleDatabaseApi.md#vdbViewGeneration) | **GET** /vdb/generations/view/{generation_id} | View generation
 [**vdbViewManufacturer**](VehicleDatabaseApi.md#vdbViewManufacturer) | **GET** /vdb/manufacturers/view/{manufacturer_id} | View manufacturer
 [**vdbViewModel**](VehicleDatabaseApi.md#vdbViewModel) | **GET** /vdb/models/view/{model_id} | View model
-[**vdbViewPerformance**](VehicleDatabaseApi.md#vdbViewPerformance) | **GET** /vdb/performance/{model_id}/{engine_id} | View vehicle performance
+[**vdbViewPerformance**](VehicleDatabaseApi.md#vdbViewPerformance) | **GET** /vdb/performance/{generation_id}/{engine_id} | View vehicle performance
 [**vdbViewType**](VehicleDatabaseApi.md#vdbViewType) | **GET** /vdb/types/{type_id} | View vehicle type
 
 # **vdbEnginesSearch**
@@ -74,11 +76,65 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **vdbListEngines**
-> \Tuningfiles\Model\VdbEngine[] vdbListEngines($model_id)
+> \Tuningfiles\Model\VdbEngine[] vdbListEngines($generation_id)
 
 List engines
 
-List engines for specific model
+List engines for specific model generation
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: api_key
+$config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+$apiInstance = new Tuningfiles\Api\VehicleDatabaseApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$generation_id = 789; // int | Generation ID
+
+try {
+    $result = $apiInstance->vdbListEngines($generation_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling VehicleDatabaseApi->vdbListEngines: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **generation_id** | **int**| Generation ID |
+
+### Return type
+
+[**\Tuningfiles\Model\VdbEngine[]**](../Model/VdbEngine.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **vdbListGenerations**
+> \Tuningfiles\Model\VdbGeneration[] vdbListGenerations($model_id)
+
+List model generations
+
+List available generations for specific model
 
 ### Example
 ```php
@@ -98,10 +154,10 @@ $apiInstance = new Tuningfiles\Api\VehicleDatabaseApi(
 $model_id = 789; // int | Model ID
 
 try {
-    $result = $apiInstance->vdbListEngines($model_id);
+    $result = $apiInstance->vdbListGenerations($model_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling VehicleDatabaseApi->vdbListEngines: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling VehicleDatabaseApi->vdbListGenerations: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -114,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Tuningfiles\Model\VdbEngine[]**](../Model/VdbEngine.md)
+[**\Tuningfiles\Model\VdbGeneration[]**](../Model/VdbGeneration.md)
 
 ### Authorization
 
@@ -443,6 +499,60 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **vdbViewGeneration**
+> \Tuningfiles\Model\VdbGeneration vdbViewGeneration($generation_id)
+
+View generation
+
+Returns information about specific model generation
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: api_key
+$config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+$apiInstance = new Tuningfiles\Api\VehicleDatabaseApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$generation_id = 789; // int | Generation ID
+
+try {
+    $result = $apiInstance->vdbViewGeneration($generation_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling VehicleDatabaseApi->vdbViewGeneration: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **generation_id** | **int**| Generation ID |
+
+### Return type
+
+[**\Tuningfiles\Model\VdbGeneration**](../Model/VdbGeneration.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **vdbViewManufacturer**
 > \Tuningfiles\Model\VdbManufacturer vdbViewManufacturer($manufacturer_id)
 
@@ -552,11 +662,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **vdbViewPerformance**
-> \Tuningfiles\Model\VdbPerformance vdbViewPerformance($model_id, $engine_id)
+> \Tuningfiles\Model\VdbPerformance vdbViewPerformance($generation_id, $engine_id)
 
 View vehicle performance
 
-Getting data of vehicle performance per model and engine
+Getting data of vehicle performance per model generation and engine
 
 ### Example
 ```php
@@ -573,11 +683,11 @@ $apiInstance = new Tuningfiles\Api\VehicleDatabaseApi(
     new GuzzleHttp\Client(),
     $config
 );
-$model_id = 789; // int | Model ID
+$generation_id = 789; // int | Generation ID
 $engine_id = 789; // int | Engine ID
 
 try {
-    $result = $apiInstance->vdbViewPerformance($model_id, $engine_id);
+    $result = $apiInstance->vdbViewPerformance($generation_id, $engine_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VehicleDatabaseApi->vdbViewPerformance: ', $e->getMessage(), PHP_EOL;
@@ -589,7 +699,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **model_id** | **int**| Model ID |
+ **generation_id** | **int**| Generation ID |
  **engine_id** | **int**| Engine ID |
 
 ### Return type

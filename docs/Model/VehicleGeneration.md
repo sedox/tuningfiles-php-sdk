@@ -1,10 +1,14 @@
-# VehicleModel
+# VehicleGeneration
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
 **name** | **string** |  | [optional] 
+**year** | **int** |  | [optional] 
+**yearend** | **int** |  | [optional] 
+**model_id** | **int** |  | [optional] 
+**model** | **string** |  | [optional] 
 **manufacturer** | **string** |  | [optional] 
 **manufacturer_id** | **int** |  | [optional] 
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorBadRequestError
+ * VdbGeneration
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Tuningfiles\ObjectSerializer;
 
 /**
- * ErrorBadRequestError Class Doc Comment
+ * VdbGeneration Class Doc Comment
  *
  * @category Class
  * @package  Tuningfiles
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ErrorBadRequestError implements ModelInterface, ArrayAccess
+class VdbGeneration implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class ErrorBadRequestError implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'error_bad_request_error';
+    protected static $swaggerModelName = 'vdb_generation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,16 @@ class ErrorBadRequestError implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'BigDecimal',
-'message' => 'string'    ];
+        'id' => 'int',
+'name' => 'string',
+'manufacturer' => 'string',
+'manufacturer_id' => 'int',
+'model_id' => 'int',
+'model' => 'string',
+'year' => 'int',
+'yearend' => 'int',
+'photo' => 'string',
+'slug' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +73,16 @@ class ErrorBadRequestError implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => null,
-'message' => null    ];
+        'id' => null,
+'name' => null,
+'manufacturer' => null,
+'manufacturer_id' => null,
+'model_id' => null,
+'model' => null,
+'year' => null,
+'yearend' => null,
+'photo' => null,
+'slug' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +111,16 @@ class ErrorBadRequestError implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-'message' => 'message'    ];
+        'id' => 'id',
+'name' => 'name',
+'manufacturer' => 'manufacturer',
+'manufacturer_id' => 'manufacturer_id',
+'model_id' => 'model_id',
+'model' => 'model',
+'year' => 'year',
+'yearend' => 'yearend',
+'photo' => 'photo',
+'slug' => 'slug'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +128,16 @@ class ErrorBadRequestError implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-'message' => 'setMessage'    ];
+        'id' => 'setId',
+'name' => 'setName',
+'manufacturer' => 'setManufacturer',
+'manufacturer_id' => 'setManufacturerId',
+'model_id' => 'setModelId',
+'model' => 'setModel',
+'year' => 'setYear',
+'yearend' => 'setYearend',
+'photo' => 'setPhoto',
+'slug' => 'setSlug'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +145,16 @@ class ErrorBadRequestError implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-'message' => 'getMessage'    ];
+        'id' => 'getId',
+'name' => 'getName',
+'manufacturer' => 'getManufacturer',
+'manufacturer_id' => 'getManufacturerId',
+'model_id' => 'getModelId',
+'model' => 'getModel',
+'year' => 'getYear',
+'yearend' => 'getYearend',
+'photo' => 'getPhoto',
+'slug' => 'getSlug'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -174,8 +214,16 @@ class ErrorBadRequestError implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['manufacturer'] = isset($data['manufacturer']) ? $data['manufacturer'] : null;
+        $this->container['manufacturer_id'] = isset($data['manufacturer_id']) ? $data['manufacturer_id'] : null;
+        $this->container['model_id'] = isset($data['model_id']) ? $data['model_id'] : null;
+        $this->container['model'] = isset($data['model']) ? $data['model'] : null;
+        $this->container['year'] = isset($data['year']) ? $data['year'] : null;
+        $this->container['yearend'] = isset($data['yearend']) ? $data['yearend'] : null;
+        $this->container['photo'] = isset($data['photo']) ? $data['photo'] : null;
+        $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
     }
 
     /**
@@ -203,49 +251,241 @@ class ErrorBadRequestError implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
+     * Gets id
      *
-     * @return BigDecimal
+     * @return int
      */
-    public function getCode()
+    public function getId()
     {
-        return $this->container['code'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets code
+     * Sets id
      *
-     * @param BigDecimal $code Error code. Typically it will be the same as the returtned HTTP response code.
+     * @param int $id Generation ID.
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setId($id)
     {
-        $this->container['code'] = $code;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets name
      *
      * @return string
      */
-    public function getMessage()
+    public function getName()
     {
-        return $this->container['message'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets message
+     * Sets name
      *
-     * @param string $message Error message.
+     * @param string $name Generation name.
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setName($name)
     {
-        $this->container['message'] = $message;
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets manufacturer
+     *
+     * @return string
+     */
+    public function getManufacturer()
+    {
+        return $this->container['manufacturer'];
+    }
+
+    /**
+     * Sets manufacturer
+     *
+     * @param string $manufacturer Manufacturer name.
+     *
+     * @return $this
+     */
+    public function setManufacturer($manufacturer)
+    {
+        $this->container['manufacturer'] = $manufacturer;
+
+        return $this;
+    }
+
+    /**
+     * Gets manufacturer_id
+     *
+     * @return int
+     */
+    public function getManufacturerId()
+    {
+        return $this->container['manufacturer_id'];
+    }
+
+    /**
+     * Sets manufacturer_id
+     *
+     * @param int $manufacturer_id Manufacturer ID.
+     *
+     * @return $this
+     */
+    public function setManufacturerId($manufacturer_id)
+    {
+        $this->container['manufacturer_id'] = $manufacturer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets model_id
+     *
+     * @return int
+     */
+    public function getModelId()
+    {
+        return $this->container['model_id'];
+    }
+
+    /**
+     * Sets model_id
+     *
+     * @param int $model_id Model ID.
+     *
+     * @return $this
+     */
+    public function setModelId($model_id)
+    {
+        $this->container['model_id'] = $model_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets model
+     *
+     * @return string
+     */
+    public function getModel()
+    {
+        return $this->container['model'];
+    }
+
+    /**
+     * Sets model
+     *
+     * @param string $model Model name.
+     *
+     * @return $this
+     */
+    public function setModel($model)
+    {
+        $this->container['model'] = $model;
+
+        return $this;
+    }
+
+    /**
+     * Gets year
+     *
+     * @return int
+     */
+    public function getYear()
+    {
+        return $this->container['year'];
+    }
+
+    /**
+     * Sets year
+     *
+     * @param int $year Year of manufacture
+     *
+     * @return $this
+     */
+    public function setYear($year)
+    {
+        $this->container['year'] = $year;
+
+        return $this;
+    }
+
+    /**
+     * Gets yearend
+     *
+     * @return int
+     */
+    public function getYearend()
+    {
+        return $this->container['yearend'];
+    }
+
+    /**
+     * Sets yearend
+     *
+     * @param int $yearend End year of manufacture
+     *
+     * @return $this
+     */
+    public function setYearend($yearend)
+    {
+        $this->container['yearend'] = $yearend;
+
+        return $this;
+    }
+
+    /**
+     * Gets photo
+     *
+     * @return string
+     */
+    public function getPhoto()
+    {
+        return $this->container['photo'];
+    }
+
+    /**
+     * Sets photo
+     *
+     * @param string $photo Photo of the generation.
+     *
+     * @return $this
+     */
+    public function setPhoto($photo)
+    {
+        $this->container['photo'] = $photo;
+
+        return $this;
+    }
+
+    /**
+     * Gets slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->container['slug'];
+    }
+
+    /**
+     * Sets slug
+     *
+     * @param string $slug URL-friendly name (slug).
+     *
+     * @return $this
+     */
+    public function setSlug($slug)
+    {
+        $this->container['slug'] = $slug;
 
         return $this;
     }

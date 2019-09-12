@@ -1,6 +1,6 @@
 {
     "name": "sedox/tuningfiles-php-sdk",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "",
     "keywords": [
         "swagger",
@@ -8,12 +8,12 @@
         "sdk",
         "api"
     ],
-    "homepage": "http://tuningfiles.com",
+    "homepage": "http://swagger.io",
     "license": "proprietary",
     "authors": [
         {
-            "name": "Sedox Performance AS",
-            "homepage": "https://www.sedox-performance.com"
+            "name": "Swagger and contributors",
+            "homepage": "https://github.com/swagger-api/swagger-codegen"
         }
     ],
     "require": {
