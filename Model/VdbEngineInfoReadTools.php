@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorBadRequestError
+ * VdbEngineInfoReadTools
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Tuningfiles\ObjectSerializer;
 
 /**
- * ErrorBadRequestError Class Doc Comment
+ * VdbEngineInfoReadTools Class Doc Comment
  *
  * @category Class
  * @package  Tuningfiles
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ErrorBadRequestError implements ModelInterface, ArrayAccess
+class VdbEngineInfoReadTools implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class ErrorBadRequestError implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'error_bad_request_error';
+    protected static $swaggerModelName = 'vdb_engine_info_read_tools';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,8 @@ class ErrorBadRequestError implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'BigDecimal',
-'message' => 'string'    ];
+        'id' => 'int',
+'name' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +65,8 @@ class ErrorBadRequestError implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => null,
-'message' => null    ];
+        'id' => null,
+'name' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +95,8 @@ class ErrorBadRequestError implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-'message' => 'message'    ];
+        'id' => 'id',
+'name' => 'name'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +104,8 @@ class ErrorBadRequestError implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-'message' => 'setMessage'    ];
+        'id' => 'setId',
+'name' => 'setName'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +113,8 @@ class ErrorBadRequestError implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-'message' => 'getMessage'    ];
+        'id' => 'getId',
+'name' => 'getName'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -174,8 +174,8 @@ class ErrorBadRequestError implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
     }
 
     /**
@@ -203,49 +203,49 @@ class ErrorBadRequestError implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
+     * Gets id
      *
-     * @return BigDecimal
+     * @return int
      */
-    public function getCode()
+    public function getId()
     {
-        return $this->container['code'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets code
+     * Sets id
      *
-     * @param BigDecimal $code Error code. Typically it will be the same as the returtned HTTP response code.
+     * @param int $id Tool ID.
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setId($id)
     {
-        $this->container['code'] = $code;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets name
      *
      * @return string
      */
-    public function getMessage()
+    public function getName()
     {
-        return $this->container['message'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets message
+     * Sets name
      *
-     * @param string $message Error message.
+     * @param string $name Tool Name.
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setName($name)
     {
-        $this->container['message'] = $message;
+        $this->container['name'] = $name;
 
         return $this;
     }
