@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **year** | **int** | Year of manufacture | [optional] 
 **yearend** | **int** | End year of manufacture | [optional] 
 **photo** | **string** | Photo of the generation. | [optional] 
+**photo_unbranded** | **string** | Photo of the generation (non branded version). | [optional] 
 **slug** | **string** | URL-friendly name (slug). | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
