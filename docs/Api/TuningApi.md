@@ -5,6 +5,7 @@ All URIs are relative to *https://api.tuningfiles.com/*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**attachmentUpload**](TuningApi.md#attachmentUpload) | **POST** /attachments/upload | Upload attachment
+[**creditsAmount**](TuningApi.md#creditsAmount) | **GET** /credits/amount | Get available credits amount
 [**fileDownload**](TuningApi.md#fileDownload) | **GET** /files/download/{file_id}/{project_id} | Download file
 [**filePurchase**](TuningApi.md#filePurchase) | **GET** /files/purchase/{file_id}/{project_id} | Purchase file
 [**fileUpload**](TuningApi.md#fileUpload) | **POST** /files/upload | Upload original file
@@ -72,6 +73,56 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **creditsAmount**
+> \Tuningfiles\Model\CreditsAmount creditsAmount()
+
+Get available credits amount
+
+This method allows you to check how many credits do you have in your account
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: api_key
+$config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+$apiInstance = new Tuningfiles\Api\TuningApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+
+try {
+    $result = $apiInstance->creditsAmount();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling TuningApi->creditsAmount: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\Tuningfiles\Model\CreditsAmount**](../Model/CreditsAmount.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
