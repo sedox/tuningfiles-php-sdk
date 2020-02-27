@@ -4,24 +4,24 @@ All URIs are relative to *https://api.tuningfiles.com/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**attachmentUpload**](TuningApi.md#attachmentUpload) | **POST** /attachments/upload | Upload attachment
-[**creditsAmount**](TuningApi.md#creditsAmount) | **GET** /credits/amount | Get available credits amount
-[**fileDownload**](TuningApi.md#fileDownload) | **GET** /files/download/{file_id}/{project_id} | Download file
-[**filePurchase**](TuningApi.md#filePurchase) | **GET** /files/purchase/{file_id}/{project_id} | Purchase file
-[**fileUpload**](TuningApi.md#fileUpload) | **POST** /files/upload | Upload original file
-[**notificationChannelsList**](TuningApi.md#notificationChannelsList) | **GET** /notification-channels | List notification channels
-[**projectView**](TuningApi.md#projectView) | **GET** /projects/view/{project_id} | View project
-[**projectsCreate**](TuningApi.md#projectsCreate) | **POST** /projects | Create project
-[**projectsList**](TuningApi.md#projectsList) | **GET** /projects | List projects
-[**readToolsList**](TuningApi.md#readToolsList) | **GET** /vehicles/read-tools | List available read tools
-[**remapsList**](TuningApi.md#remapsList) | **GET** /vehicles/remaps/{vehicle_type_id} | List available remaps
-[**tuningSubscription**](TuningApi.md#tuningSubscription) | **GET** /subscription | Check for active subscription
-[**vehiclesEnginesList**](TuningApi.md#vehiclesEnginesList) | **GET** /vehicles/engines/{generation_id} | List vehicle engines
-[**vehiclesGenerationsList**](TuningApi.md#vehiclesGenerationsList) | **GET** /vehicles/generations/{model_id} | List vehicle model generations
-[**vehiclesManufacturersList**](TuningApi.md#vehiclesManufacturersList) | **GET** /vehicles/manufacturers/{vehicle_type_id} | List vehicle manufacturers
-[**vehiclesModelsList**](TuningApi.md#vehiclesModelsList) | **GET** /vehicles/models/{manufacturer_id} | List vehicle models
-[**vehiclesTransmissionsList**](TuningApi.md#vehiclesTransmissionsList) | **GET** /vehicles/transmissions | List available vehicle transmissions
-[**vehiclesTypesList**](TuningApi.md#vehiclesTypesList) | **GET** /vehicles/types | List vehicle types
+[**attachmentUpload**](TuningApi.md#attachmentupload) | **POST** /attachments/upload | Upload attachment
+[**creditsAmount**](TuningApi.md#creditsamount) | **GET** /credits/amount | Get available credits amount
+[**fileDownload**](TuningApi.md#filedownload) | **GET** /files/download/{file_id}/{project_id} | Download file
+[**filePurchase**](TuningApi.md#filepurchase) | **GET** /files/purchase/{file_id}/{project_id} | Purchase file
+[**fileUpload**](TuningApi.md#fileupload) | **POST** /files/upload | Upload original file
+[**notificationChannelsList**](TuningApi.md#notificationchannelslist) | **GET** /notification-channels | List notification channels
+[**projectView**](TuningApi.md#projectview) | **GET** /projects/view/{project_id} | View project
+[**projectsCreate**](TuningApi.md#projectscreate) | **POST** /projects | Create project
+[**projectsList**](TuningApi.md#projectslist) | **GET** /projects | List projects
+[**readToolsList**](TuningApi.md#readtoolslist) | **GET** /vehicles/read-tools | List available read tools
+[**remapsList**](TuningApi.md#remapslist) | **GET** /vehicles/remaps/{vehicle_type_id} | List available remaps
+[**tuningSubscription**](TuningApi.md#tuningsubscription) | **GET** /subscription | Check for active subscription
+[**vehiclesEnginesList**](TuningApi.md#vehiclesengineslist) | **GET** /vehicles/engines/{generation_id} | List vehicle engines
+[**vehiclesGenerationsList**](TuningApi.md#vehiclesgenerationslist) | **GET** /vehicles/generations/{model_id} | List vehicle model generations
+[**vehiclesManufacturersList**](TuningApi.md#vehiclesmanufacturerslist) | **GET** /vehicles/manufacturers/{vehicle_type_id} | List vehicle manufacturers
+[**vehiclesModelsList**](TuningApi.md#vehiclesmodelslist) | **GET** /vehicles/models/{manufacturer_id} | List vehicle models
+[**vehiclesTransmissionsList**](TuningApi.md#vehiclestransmissionslist) | **GET** /vehicles/transmissions | List available vehicle transmissions
+[**vehiclesTypesList**](TuningApi.md#vehiclestypeslist) | **GET** /vehicles/types | List vehicle types
 
 # **attachmentUpload**
 > \Tuningfiles\Model\AttachmentsUpload attachmentUpload($file)
@@ -60,7 +60,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **string**|  | [optional]
+ **file** | **string****string**|  | [optional]
 
 ### Return type
 
@@ -278,7 +278,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **string**|  | [optional]
+ **file** | **string****string**|  | [optional]
 
 ### Return type
 

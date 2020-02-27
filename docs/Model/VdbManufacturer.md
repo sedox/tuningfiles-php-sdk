@@ -10,5 +10,5 @@ Name | Type | Description | Notes
 **vehicle_type** | **string** | Type of the vehicle. | [optional] 
 **vehicle_type_id** | **int** | Vehicle type ID. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

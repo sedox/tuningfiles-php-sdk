@@ -24,5 +24,5 @@ Name | Type | Description | Notes
 **read_tools** | [**\Tuningfiles\Model\VdbEngineInfoReadTools[]**](VdbEngineInfoReadTools.md) | Tuning tools which can be used to read this engine. | [optional] 
 **read_methods** | [**\Tuningfiles\Model\VdbEngineInfoReadMethods[]**](VdbEngineInfoReadMethods.md) | Method to use when reading this engine. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

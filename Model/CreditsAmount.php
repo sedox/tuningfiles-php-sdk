@@ -1,6 +1,6 @@
 <?php
 /**
- * Error500Error
+ * CreditsAmount
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Tuningfiles\ObjectSerializer;
 
 /**
- * Error500Error Class Doc Comment
+ * CreditsAmount Class Doc Comment
  *
  * @category Class
  * @package  Tuningfiles
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Error500Error implements ModelInterface, ArrayAccess
+class CreditsAmount implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class Error500Error implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'error_500_error';
+    protected static $swaggerModelName = 'credits_amount';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,8 @@ class Error500Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'float',
-'message' => 'string'    ];
+        'amount' => 'int',
+'last_change' => '\DateTime'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +65,8 @@ class Error500Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => null,
-'message' => null    ];
+        'amount' => null,
+'last_change' => 'date-time'    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +95,8 @@ class Error500Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-'message' => 'message'    ];
+        'amount' => 'amount',
+'last_change' => 'last_change'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +104,8 @@ class Error500Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-'message' => 'setMessage'    ];
+        'amount' => 'setAmount',
+'last_change' => 'setLastChange'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +113,8 @@ class Error500Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-'message' => 'getMessage'    ];
+        'amount' => 'getAmount',
+'last_change' => 'getLastChange'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -174,8 +174,8 @@ class Error500Error implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['last_change'] = isset($data['last_change']) ? $data['last_change'] : null;
     }
 
     /**
@@ -203,49 +203,49 @@ class Error500Error implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
+     * Gets amount
      *
-     * @return float
+     * @return int
      */
-    public function getCode()
+    public function getAmount()
     {
-        return $this->container['code'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets code
+     * Sets amount
      *
-     * @param float $code Error code. Typically it will be the same as the returtned HTTP response code.
+     * @param int $amount Credits amount in your account
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setAmount($amount)
     {
-        $this->container['code'] = $code;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets last_change
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getMessage()
+    public function getLastChange()
     {
-        return $this->container['message'];
+        return $this->container['last_change'];
     }
 
     /**
-     * Sets message
+     * Sets last_change
      *
-     * @param string $message Error message.
+     * @param \DateTime $last_change Last change time
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setLastChange($last_change)
     {
-        $this->container['message'] = $message;
+        $this->container['last_change'] = $last_change;
 
         return $this;
     }

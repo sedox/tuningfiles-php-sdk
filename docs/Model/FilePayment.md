@@ -13,5 +13,5 @@ Name | Type | Description | Notes
 **date** | [**\DateTime**](\DateTime.md) | Payment date. | [optional] 
 **end_date** | [**\DateTime**](\DateTime.md) | After this date payment won&#x27;t be active anymore. In this case, file should be purcased again. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

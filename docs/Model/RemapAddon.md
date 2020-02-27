@@ -10,5 +10,5 @@ Name | Type | Description | Notes
 **price** | **int** | Price for the addon | [optional] 
 **tier_price** | **bool** | Shows if addons is tier price eligible. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

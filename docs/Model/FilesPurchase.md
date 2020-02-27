@@ -8,5 +8,5 @@ Name | Type | Description | Notes
 **message** | **string** | Result message. | [optional] 
 **amount_paid** | **int** | Amount of credits paid for the file. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -20,5 +20,5 @@ Name | Type | Description | Notes
 **engine_code** | **string** | Engine code. | [optional] 
 **fuel_name** | **string** | Type of the fuel used. Diesel, Petrol, Ethanol, LPG, Hybrid. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

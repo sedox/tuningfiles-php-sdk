@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **manufacturer_slug** | **string** | URL-friendly name (slug) of the manufacturer. | [optional] 
 **brand_logo** | **string** | Photo of the brand. | [optional] 
 **model_id** | **int** | Model ID. | [optional] 
-**model_name** | **string** | Model name. | [optional] 
+**model_common_name** | **string** | Model name. | [optional] 
 **model_slug** | **string** | URL-friendly name (slug) of the model. | [optional] 
 **model_photo** | **string** | Photo of the model. | [optional] 
 **model_photo_unbranded** | **string** | Photo of the model (non branded version). | [optional] 
@@ -24,5 +24,5 @@ Name | Type | Description | Notes
 **engine_name** | **string** | Engine name. | [optional] 
 **engine_slug** | **string** | URL-friendly name (slug) of the engine. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

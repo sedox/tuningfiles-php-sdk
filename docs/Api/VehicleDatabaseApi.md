@@ -4,20 +4,20 @@ All URIs are relative to *https://api.tuningfiles.com/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**vdbEnginesSearch**](VehicleDatabaseApi.md#vdbEnginesSearch) | **GET** /vdb/engines/search | Search engine
-[**vdbListEngines**](VehicleDatabaseApi.md#vdbListEngines) | **GET** /vdb/engines/{generation_id} | List engines
-[**vdbListGenerations**](VehicleDatabaseApi.md#vdbListGenerations) | **GET** /vdb/generations/{model_id} | List model generations
-[**vdbListManufacturers**](VehicleDatabaseApi.md#vdbListManufacturers) | **GET** /vdb/manufacturers/{vehicle_type_id} | List manufacturers
-[**vdbListModels**](VehicleDatabaseApi.md#vdbListModels) | **GET** /vdb/models/{manufacturer_id} | List models
-[**vdbListTypes**](VehicleDatabaseApi.md#vdbListTypes) | **GET** /vdb/types | List vehicle types
-[**vdbSearch**](VehicleDatabaseApi.md#vdbSearch) | **GET** /vdb/search | Search
-[**vdbSubscription**](VehicleDatabaseApi.md#vdbSubscription) | **GET** /vdb/subscription | Check for active subscription
-[**vdbViewEngine**](VehicleDatabaseApi.md#vdbViewEngine) | **GET** /vdb/engines/view/{engine_id} | View engine
-[**vdbViewGeneration**](VehicleDatabaseApi.md#vdbViewGeneration) | **GET** /vdb/generations/view/{generation_id} | View generation
-[**vdbViewManufacturer**](VehicleDatabaseApi.md#vdbViewManufacturer) | **GET** /vdb/manufacturers/view/{manufacturer_id} | View manufacturer
-[**vdbViewModel**](VehicleDatabaseApi.md#vdbViewModel) | **GET** /vdb/models/view/{model_id} | View model
-[**vdbViewPerformance**](VehicleDatabaseApi.md#vdbViewPerformance) | **GET** /vdb/performance/{generation_id}/{engine_id} | View vehicle performance
-[**vdbViewType**](VehicleDatabaseApi.md#vdbViewType) | **GET** /vdb/types/{type_id} | View vehicle type
+[**vdbEnginesSearch**](VehicleDatabaseApi.md#vdbenginessearch) | **GET** /vdb/engines/search | Search engine
+[**vdbListEngines**](VehicleDatabaseApi.md#vdblistengines) | **GET** /vdb/engines/{generation_id} | List engines
+[**vdbListGenerations**](VehicleDatabaseApi.md#vdblistgenerations) | **GET** /vdb/generations/{model_id} | List model generations
+[**vdbListManufacturers**](VehicleDatabaseApi.md#vdblistmanufacturers) | **GET** /vdb/manufacturers/{vehicle_type_id} | List manufacturers
+[**vdbListModels**](VehicleDatabaseApi.md#vdblistmodels) | **GET** /vdb/models/{manufacturer_id} | List models
+[**vdbListTypes**](VehicleDatabaseApi.md#vdblisttypes) | **GET** /vdb/types | List vehicle types
+[**vdbSearch**](VehicleDatabaseApi.md#vdbsearch) | **GET** /vdb/search | Search
+[**vdbSubscription**](VehicleDatabaseApi.md#vdbsubscription) | **GET** /vdb/subscription | Check for active subscription
+[**vdbViewEngine**](VehicleDatabaseApi.md#vdbviewengine) | **GET** /vdb/engines/view/{engine_id} | View engine
+[**vdbViewGeneration**](VehicleDatabaseApi.md#vdbviewgeneration) | **GET** /vdb/generations/view/{generation_id} | View generation
+[**vdbViewManufacturer**](VehicleDatabaseApi.md#vdbviewmanufacturer) | **GET** /vdb/manufacturers/view/{manufacturer_id} | View manufacturer
+[**vdbViewModel**](VehicleDatabaseApi.md#vdbviewmodel) | **GET** /vdb/models/view/{model_id} | View model
+[**vdbViewPerformance**](VehicleDatabaseApi.md#vdbviewperformance) | **GET** /vdb/performance/{generation_id}/{engine_id} | View vehicle performance
+[**vdbViewType**](VehicleDatabaseApi.md#vdbviewtype) | **GET** /vdb/types/{type_id} | View vehicle type
 
 # **vdbEnginesSearch**
 > \Tuningfiles\Model\VdbEngine[] vdbEnginesSearch($query, $fuel)

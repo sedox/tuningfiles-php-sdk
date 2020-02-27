@@ -10,5 +10,5 @@ Name | Type | Description | Notes
 **nm_values** | **string** | Nm values for plotting a dyno chart. | [optional] 
 **modifications** | **string** | Modifications needed. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

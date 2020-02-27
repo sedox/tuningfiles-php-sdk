@@ -24,5 +24,5 @@ Name | Type | Description | Notes
 **ecu_software_number** | **string** |  | [optional] 
 **ecu_software_upgrade_version** | **string** |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -29,5 +29,5 @@ Name | Type | Description | Notes
 **added** | [**\DateTime**](\DateTime.md) | Date-time file was uploaded. | [optional] 
 **updated** | [**\DateTime**](\DateTime.md) | Date-time file was updated. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
