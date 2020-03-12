@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorBadRequest
+ * DownloadFile
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Tuningfiles\ObjectSerializer;
 
 /**
- * ErrorBadRequest Class Doc Comment
+ * DownloadFile Class Doc Comment
  *
  * @category Class
  * @package  Tuningfiles
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ErrorBadRequest implements ModelInterface, ArrayAccess
+class DownloadFile implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class ErrorBadRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'error_bad_request';
+    protected static $swaggerModelName = 'download_file';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,7 +56,9 @@ class ErrorBadRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'error' => '\Tuningfiles\Model\ErrorBadRequestError'    ];
+        'filename' => 'string',
+'data' => 'string',
+'size' => 'int'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -64,7 +66,9 @@ class ErrorBadRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'error' => null    ];
+        'filename' => null,
+'data' => null,
+'size' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -93,7 +97,9 @@ class ErrorBadRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error'    ];
+        'filename' => 'filename',
+'data' => 'data',
+'size' => 'size'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -101,7 +107,9 @@ class ErrorBadRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError'    ];
+        'filename' => 'setFilename',
+'data' => 'setData',
+'size' => 'setSize'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -109,7 +117,9 @@ class ErrorBadRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError'    ];
+        'filename' => 'getFilename',
+'data' => 'getData',
+'size' => 'getSize'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -169,7 +179,9 @@ class ErrorBadRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['filename'] = isset($data['filename']) ? $data['filename'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
     }
 
     /**
@@ -197,25 +209,73 @@ class ErrorBadRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets error
+     * Gets filename
      *
-     * @return \Tuningfiles\Model\ErrorBadRequestError
+     * @return string
      */
-    public function getError()
+    public function getFilename()
     {
-        return $this->container['error'];
+        return $this->container['filename'];
     }
 
     /**
-     * Sets error
+     * Sets filename
      *
-     * @param \Tuningfiles\Model\ErrorBadRequestError $error error
+     * @param string $filename The name of the file
      *
      * @return $this
      */
-    public function setError($error)
+    public function setFilename($filename)
     {
-        $this->container['error'] = $error;
+        $this->container['filename'] = $filename;
+
+        return $this;
+    }
+
+    /**
+     * Gets data
+     *
+     * @return string
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param string $data Base64-encoded content of the file.
+     *
+     * @return $this
+     */
+    public function setData($data)
+    {
+        $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets size
+     *
+     * @return int
+     */
+    public function getSize()
+    {
+        return $this->container['size'];
+    }
+
+    /**
+     * Sets size
+     *
+     * @param int $size File size in bytes.
+     *
+     * @return $this
+     */
+    public function setSize($size)
+    {
+        $this->container['size'] = $size;
 
         return $this;
     }

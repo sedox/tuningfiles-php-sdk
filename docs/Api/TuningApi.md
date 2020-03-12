@@ -128,11 +128,11 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **fileDownload**
-> \Tuningfiles\Model\DownloadJson fileDownload($file_id, $project_id, $json)
+> \Tuningfiles\Model\DownloadFile fileDownload($file_id, $project_id)
 
 Download file
 
-Download tuned or original file from your project.  By default response will return a file. If you wish to return json data instead, set `json=true` query parameter. In this case, API will return json data where \"filename\" will be the name of the file and \"data\" will be the Base64-encoded contents of the file.     ### Response example (if json is returned /json=true/):      ```    {      \"filename\": \"The name of the file\",      \"data\": \"UEsDBBQABgAIAAAAIQBi7p1oXgEAAJAEA...iAAAAAA==\",      \"size\": 9508    }    ```      ### Response headers (if file is returned):    ```    Content-Type: application/octet-stream    Content-Length: 194    X-Filename: 123456 - 98765 - Audi A3 8P 2.0 TDI 136hp 320Nm 2017 st1.tune    Content-Transfer-Encoding: Binary    Content-disposition: attachment; filename=\"123456 - 98765 - Audi A3 8P 2.0 TDI 136hp 320Nm 2017 st1.tune\"    ```
+Download tuned or original file from your project.  Returns json data where \"filename\" will be the name of the file and \"data\" will be the Base64-encoded contents of the file.     ### Response example:      ```    {      \"filename\": \"The name of the file\",      \"data\": \"UEsDBBQABgAIAAAAIQBi7p1oXgEAAJAEA...iAAAAAA==\",      \"size\": 9508    }    ```  **Remember to base64 decode the content of the data key when assembling the file.**
 
 ### Example
 ```php
@@ -151,10 +151,9 @@ $apiInstance = new Tuningfiles\Api\TuningApi(
 );
 $file_id = 789; // int | File ID
 $project_id = 789; // int | Project ID
-$json = true; // bool | By default response will return a file. If you wish to return json data, use this parameter. In this case, API will return json data where \"filename\" will be the name of the file and \"data\" will be the Base64-encoded contents of the file.
 
 try {
-    $result = $apiInstance->fileDownload($file_id, $project_id, $json);
+    $result = $apiInstance->fileDownload($file_id, $project_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TuningApi->fileDownload: ', $e->getMessage(), PHP_EOL;
@@ -168,11 +167,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file_id** | **int**| File ID |
  **project_id** | **int**| Project ID |
- **json** | **bool**| By default response will return a file. If you wish to return json data, use this parameter. In this case, API will return json data where \&quot;filename\&quot; will be the name of the file and \&quot;data\&quot; will be the Base64-encoded contents of the file. | [optional]
 
 ### Return type
 
-[**\Tuningfiles\Model\DownloadJson**](../Model/DownloadJson.md)
+[**\Tuningfiles\Model\DownloadFile**](../Model/DownloadFile.md)
 
 ### Authorization
 
@@ -181,7 +179,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/octet-stream
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
