@@ -1,6 +1,6 @@
 <?php
 /**
- * Error404
+ * ProjectFilePayment
  *
  * PHP version 5
  *
@@ -32,14 +32,15 @@ use \ArrayAccess;
 use \Tuningfiles\ObjectSerializer;
 
 /**
- * Error404 Class Doc Comment
+ * ProjectFilePayment Class Doc Comment
  *
  * @category Class
+ * @description Will be &#x60;null&#x60; if there is no active payment for this file.
  * @package  Tuningfiles
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Error404 implements ModelInterface, ArrayAccess
+class ProjectFilePayment implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +49,7 @@ class Error404 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'error_404';
+    protected static $swaggerModelName = 'project_file_payment';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,7 +57,15 @@ class Error404 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'error' => '\Tuningfiles\Model\Error404Error'    ];
+        'id' => 'int',
+'fullfillment_id' => 'int',
+'file_id' => 'int',
+'project_id' => 'int',
+'buyer_id' => 'int',
+'amount' => 'int',
+'is_refunded' => 'bool',
+'date' => '\DateTime',
+'end_date' => '\DateTime'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -64,7 +73,15 @@ class Error404 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'error' => null    ];
+        'id' => null,
+'fullfillment_id' => null,
+'file_id' => null,
+'project_id' => null,
+'buyer_id' => null,
+'amount' => null,
+'is_refunded' => null,
+'date' => 'date-time',
+'end_date' => 'date-time'    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -93,7 +110,15 @@ class Error404 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error'    ];
+        'id' => 'id',
+'fullfillment_id' => 'fullfillment_id',
+'file_id' => 'file_id',
+'project_id' => 'project_id',
+'buyer_id' => 'buyer_id',
+'amount' => 'amount',
+'is_refunded' => 'is_refunded',
+'date' => 'date',
+'end_date' => 'end_date'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -101,7 +126,15 @@ class Error404 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError'    ];
+        'id' => 'setId',
+'fullfillment_id' => 'setFullfillmentId',
+'file_id' => 'setFileId',
+'project_id' => 'setProjectId',
+'buyer_id' => 'setBuyerId',
+'amount' => 'setAmount',
+'is_refunded' => 'setIsRefunded',
+'date' => 'setDate',
+'end_date' => 'setEndDate'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -109,7 +142,15 @@ class Error404 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError'    ];
+        'id' => 'getId',
+'fullfillment_id' => 'getFullfillmentId',
+'file_id' => 'getFileId',
+'project_id' => 'getProjectId',
+'buyer_id' => 'getBuyerId',
+'amount' => 'getAmount',
+'is_refunded' => 'getIsRefunded',
+'date' => 'getDate',
+'end_date' => 'getEndDate'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -169,7 +210,15 @@ class Error404 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['fullfillment_id'] = isset($data['fullfillment_id']) ? $data['fullfillment_id'] : null;
+        $this->container['file_id'] = isset($data['file_id']) ? $data['file_id'] : null;
+        $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['buyer_id'] = isset($data['buyer_id']) ? $data['buyer_id'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['is_refunded'] = isset($data['is_refunded']) ? $data['is_refunded'] : null;
+        $this->container['date'] = isset($data['date']) ? $data['date'] : null;
+        $this->container['end_date'] = isset($data['end_date']) ? $data['end_date'] : null;
     }
 
     /**
@@ -197,25 +246,217 @@ class Error404 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets error
+     * Gets id
      *
-     * @return \Tuningfiles\Model\Error404Error
+     * @return int
      */
-    public function getError()
+    public function getId()
     {
-        return $this->container['error'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets error
+     * Sets id
      *
-     * @param \Tuningfiles\Model\Error404Error $error error
+     * @param int $id Payment ID.
      *
      * @return $this
      */
-    public function setError($error)
+    public function setId($id)
     {
-        $this->container['error'] = $error;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets fullfillment_id
+     *
+     * @return int
+     */
+    public function getFullfillmentId()
+    {
+        return $this->container['fullfillment_id'];
+    }
+
+    /**
+     * Sets fullfillment_id
+     *
+     * @param int $fullfillment_id Fulfillment ID.
+     *
+     * @return $this
+     */
+    public function setFullfillmentId($fullfillment_id)
+    {
+        $this->container['fullfillment_id'] = $fullfillment_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets file_id
+     *
+     * @return int
+     */
+    public function getFileId()
+    {
+        return $this->container['file_id'];
+    }
+
+    /**
+     * Sets file_id
+     *
+     * @param int $file_id File ID.
+     *
+     * @return $this
+     */
+    public function setFileId($file_id)
+    {
+        $this->container['file_id'] = $file_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_id
+     *
+     * @return int
+     */
+    public function getProjectId()
+    {
+        return $this->container['project_id'];
+    }
+
+    /**
+     * Sets project_id
+     *
+     * @param int $project_id Project ID (Sedox ID).
+     *
+     * @return $this
+     */
+    public function setProjectId($project_id)
+    {
+        $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets buyer_id
+     *
+     * @return int
+     */
+    public function getBuyerId()
+    {
+        return $this->container['buyer_id'];
+    }
+
+    /**
+     * Sets buyer_id
+     *
+     * @param int $buyer_id Customer who made the payment.
+     *
+     * @return $this
+     */
+    public function setBuyerId($buyer_id)
+    {
+        $this->container['buyer_id'] = $buyer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets amount
+     *
+     * @return int
+     */
+    public function getAmount()
+    {
+        return $this->container['amount'];
+    }
+
+    /**
+     * Sets amount
+     *
+     * @param int $amount Payment amount.
+     *
+     * @return $this
+     */
+    public function setAmount($amount)
+    {
+        $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_refunded
+     *
+     * @return bool
+     */
+    public function getIsRefunded()
+    {
+        return $this->container['is_refunded'];
+    }
+
+    /**
+     * Sets is_refunded
+     *
+     * @param bool $is_refunded Is payment refunded.
+     *
+     * @return $this
+     */
+    public function setIsRefunded($is_refunded)
+    {
+        $this->container['is_refunded'] = $is_refunded;
+
+        return $this;
+    }
+
+    /**
+     * Gets date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->container['date'];
+    }
+
+    /**
+     * Sets date
+     *
+     * @param \DateTime $date Payment date.
+     *
+     * @return $this
+     */
+    public function setDate($date)
+    {
+        $this->container['date'] = $date;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_date
+     *
+     * @return \DateTime
+     */
+    public function getEndDate()
+    {
+        return $this->container['end_date'];
+    }
+
+    /**
+     * Sets end_date
+     *
+     * @param \DateTime $end_date After this date payment won't be active anymore. In this case, file should be purcased again.
+     *
+     * @return $this
+     */
+    public function setEndDate($end_date)
+    {
+        $this->container['end_date'] = $end_date;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Error404
+ * ProjectFilePricing
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Tuningfiles\ObjectSerializer;
 
 /**
- * Error404 Class Doc Comment
+ * ProjectFilePricing Class Doc Comment
  *
  * @category Class
  * @package  Tuningfiles
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Error404 implements ModelInterface, ArrayAccess
+class ProjectFilePricing implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class Error404 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'error_404';
+    protected static $swaggerModelName = 'project_file_pricing';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,7 +56,12 @@ class Error404 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'error' => '\Tuningfiles\Model\Error404Error'    ];
+        'is_billable' => 'bool',
+'is_paid' => 'bool',
+'regular_price' => 'int',
+'final_price' => 'int',
+'download_permitted' => 'bool',
+'purchase_url' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -64,7 +69,12 @@ class Error404 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'error' => null    ];
+        'is_billable' => null,
+'is_paid' => null,
+'regular_price' => null,
+'final_price' => null,
+'download_permitted' => null,
+'purchase_url' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -93,7 +103,12 @@ class Error404 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error'    ];
+        'is_billable' => 'is_billable',
+'is_paid' => 'is_paid',
+'regular_price' => 'regular_price',
+'final_price' => 'final_price',
+'download_permitted' => 'download_permitted',
+'purchase_url' => 'purchase_url'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -101,7 +116,12 @@ class Error404 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError'    ];
+        'is_billable' => 'setIsBillable',
+'is_paid' => 'setIsPaid',
+'regular_price' => 'setRegularPrice',
+'final_price' => 'setFinalPrice',
+'download_permitted' => 'setDownloadPermitted',
+'purchase_url' => 'setPurchaseUrl'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -109,7 +129,12 @@ class Error404 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError'    ];
+        'is_billable' => 'getIsBillable',
+'is_paid' => 'getIsPaid',
+'regular_price' => 'getRegularPrice',
+'final_price' => 'getFinalPrice',
+'download_permitted' => 'getDownloadPermitted',
+'purchase_url' => 'getPurchaseUrl'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -169,7 +194,12 @@ class Error404 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['is_billable'] = isset($data['is_billable']) ? $data['is_billable'] : null;
+        $this->container['is_paid'] = isset($data['is_paid']) ? $data['is_paid'] : null;
+        $this->container['regular_price'] = isset($data['regular_price']) ? $data['regular_price'] : null;
+        $this->container['final_price'] = isset($data['final_price']) ? $data['final_price'] : null;
+        $this->container['download_permitted'] = isset($data['download_permitted']) ? $data['download_permitted'] : null;
+        $this->container['purchase_url'] = isset($data['purchase_url']) ? $data['purchase_url'] : null;
     }
 
     /**
@@ -197,25 +227,145 @@ class Error404 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets error
+     * Gets is_billable
      *
-     * @return \Tuningfiles\Model\Error404Error
+     * @return bool
      */
-    public function getError()
+    public function getIsBillable()
     {
-        return $this->container['error'];
+        return $this->container['is_billable'];
     }
 
     /**
-     * Sets error
+     * Sets is_billable
      *
-     * @param \Tuningfiles\Model\Error404Error $error error
+     * @param bool $is_billable Shows either this file is billable or not.
      *
      * @return $this
      */
-    public function setError($error)
+    public function setIsBillable($is_billable)
     {
-        $this->container['error'] = $error;
+        $this->container['is_billable'] = $is_billable;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_paid
+     *
+     * @return bool
+     */
+    public function getIsPaid()
+    {
+        return $this->container['is_paid'];
+    }
+
+    /**
+     * Sets is_paid
+     *
+     * @param bool $is_paid Shows either this file has been paid or not.
+     *
+     * @return $this
+     */
+    public function setIsPaid($is_paid)
+    {
+        $this->container['is_paid'] = $is_paid;
+
+        return $this;
+    }
+
+    /**
+     * Gets regular_price
+     *
+     * @return int
+     */
+    public function getRegularPrice()
+    {
+        return $this->container['regular_price'];
+    }
+
+    /**
+     * Sets regular_price
+     *
+     * @param int $regular_price The regular price of the file.
+     *
+     * @return $this
+     */
+    public function setRegularPrice($regular_price)
+    {
+        $this->container['regular_price'] = $regular_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets final_price
+     *
+     * @return int
+     */
+    public function getFinalPrice()
+    {
+        return $this->container['final_price'];
+    }
+
+    /**
+     * Sets final_price
+     *
+     * @param int $final_price The final price of the file.
+     *
+     * @return $this
+     */
+    public function setFinalPrice($final_price)
+    {
+        $this->container['final_price'] = $final_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets download_permitted
+     *
+     * @return bool
+     */
+    public function getDownloadPermitted()
+    {
+        return $this->container['download_permitted'];
+    }
+
+    /**
+     * Sets download_permitted
+     *
+     * @param bool $download_permitted Shows either customer is permitted to download this file or not. If file is billable and download_permitted = false, then it should be purchased first.
+     *
+     * @return $this
+     */
+    public function setDownloadPermitted($download_permitted)
+    {
+        $this->container['download_permitted'] = $download_permitted;
+
+        return $this;
+    }
+
+    /**
+     * Gets purchase_url
+     *
+     * @return string
+     */
+    public function getPurchaseUrl()
+    {
+        return $this->container['purchase_url'];
+    }
+
+    /**
+     * Sets purchase_url
+     *
+     * @param string $purchase_url If file needs to be purchased, this will contain the API url to purchase the file.
+     *
+     * @return $this
+     */
+    public function setPurchaseUrl($purchase_url)
+    {
+        $this->container['purchase_url'] = $purchase_url;
 
         return $this;
     }

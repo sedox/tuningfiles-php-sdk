@@ -1,6 +1,6 @@
 <?php
 /**
- * VdbEngine
+ * ProjectFile
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Tuningfiles\ObjectSerializer;
 
 /**
- * VdbEngine Class Doc Comment
+ * ProjectFile Class Doc Comment
  *
  * @category Class
  * @package  Tuningfiles
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class VdbEngine implements ModelInterface, ArrayAccess
+class ProjectFile implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class VdbEngine implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'vdb_engine';
+    protected static $swaggerModelName = 'project_file';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,21 +57,30 @@ class VdbEngine implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'id' => 'int',
-'name' => 'string',
-'slug' => 'string',
+'uuid' => 'string',
+'project' => 'int',
 'type' => 'string',
-'capacity' => 'int',
-'power' => 'int',
-'torque' => 'int',
-'cylinders' => 'int',
-'year' => 'int',
-'ecu' => 'string',
-'tcu' => 'string',
-'hp_values' => 'string',
-'nm_values' => 'string',
-'rpm_values' => 'string',
-'engine_code' => 'string',
-'fuel_name' => 'string'    ];
+'ecu_number' => 'int',
+'ecu_label' => 'string',
+'remap_id' => 'int',
+'remap_name' => 'string',
+'remap_addons' => 'string[]',
+'size' => 'int',
+'md5sum' => 'string',
+'is_checksum_updated' => 'bool',
+'user_id' => 'int',
+'uploaded_by' => 'int',
+'is_original' => 'bool',
+'is_stack' => 'bool',
+'stack' => 'int',
+'is_cmdencrypted' => 'bool',
+'is_cmddecrypted' => 'bool',
+'is_id' => 'bool',
+'comment' => 'string',
+'pricing' => '\Tuningfiles\Model\ProjectFilePricing',
+'payment' => '\Tuningfiles\Model\ProjectFilePayment',
+'added' => '\DateTime',
+'updated' => '\DateTime'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -80,21 +89,30 @@ class VdbEngine implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'id' => null,
-'name' => null,
-'slug' => null,
+'uuid' => null,
+'project' => null,
 'type' => null,
-'capacity' => null,
-'power' => null,
-'torque' => null,
-'cylinders' => null,
-'year' => null,
-'ecu' => null,
-'tcu' => null,
-'hp_values' => null,
-'nm_values' => null,
-'rpm_values' => null,
-'engine_code' => null,
-'fuel_name' => null    ];
+'ecu_number' => null,
+'ecu_label' => null,
+'remap_id' => null,
+'remap_name' => null,
+'remap_addons' => null,
+'size' => null,
+'md5sum' => null,
+'is_checksum_updated' => null,
+'user_id' => null,
+'uploaded_by' => null,
+'is_original' => null,
+'is_stack' => null,
+'stack' => null,
+'is_cmdencrypted' => null,
+'is_cmddecrypted' => null,
+'is_id' => null,
+'comment' => null,
+'pricing' => null,
+'payment' => null,
+'added' => 'date-time',
+'updated' => 'date-time'    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -124,21 +142,30 @@ class VdbEngine implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-'name' => 'name',
-'slug' => 'slug',
+'uuid' => 'uuid',
+'project' => 'project',
 'type' => 'type',
-'capacity' => 'capacity',
-'power' => 'power',
-'torque' => 'torque',
-'cylinders' => 'cylinders',
-'year' => 'year',
-'ecu' => 'ecu',
-'tcu' => 'tcu',
-'hp_values' => 'hp_values',
-'nm_values' => 'nm_values',
-'rpm_values' => 'rpm_values',
-'engine_code' => 'engine_code',
-'fuel_name' => 'fuel_name'    ];
+'ecu_number' => 'ecu_number',
+'ecu_label' => 'ecu_label',
+'remap_id' => 'remap_id',
+'remap_name' => 'remap_name',
+'remap_addons' => 'remap_addons',
+'size' => 'size',
+'md5sum' => 'md5sum',
+'is_checksum_updated' => 'is_checksum_updated',
+'user_id' => 'user_id',
+'uploaded_by' => 'uploaded_by',
+'is_original' => 'is_original',
+'is_stack' => 'is_stack',
+'stack' => 'stack',
+'is_cmdencrypted' => 'is_cmdencrypted',
+'is_cmddecrypted' => 'is_cmddecrypted',
+'is_id' => 'is_id',
+'comment' => 'comment',
+'pricing' => 'pricing',
+'payment' => 'payment',
+'added' => 'added',
+'updated' => 'updated'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -147,21 +174,30 @@ class VdbEngine implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-'name' => 'setName',
-'slug' => 'setSlug',
+'uuid' => 'setUuid',
+'project' => 'setProject',
 'type' => 'setType',
-'capacity' => 'setCapacity',
-'power' => 'setPower',
-'torque' => 'setTorque',
-'cylinders' => 'setCylinders',
-'year' => 'setYear',
-'ecu' => 'setEcu',
-'tcu' => 'setTcu',
-'hp_values' => 'setHpValues',
-'nm_values' => 'setNmValues',
-'rpm_values' => 'setRpmValues',
-'engine_code' => 'setEngineCode',
-'fuel_name' => 'setFuelName'    ];
+'ecu_number' => 'setEcuNumber',
+'ecu_label' => 'setEcuLabel',
+'remap_id' => 'setRemapId',
+'remap_name' => 'setRemapName',
+'remap_addons' => 'setRemapAddons',
+'size' => 'setSize',
+'md5sum' => 'setMd5sum',
+'is_checksum_updated' => 'setIsChecksumUpdated',
+'user_id' => 'setUserId',
+'uploaded_by' => 'setUploadedBy',
+'is_original' => 'setIsOriginal',
+'is_stack' => 'setIsStack',
+'stack' => 'setStack',
+'is_cmdencrypted' => 'setIsCmdencrypted',
+'is_cmddecrypted' => 'setIsCmddecrypted',
+'is_id' => 'setIsId',
+'comment' => 'setComment',
+'pricing' => 'setPricing',
+'payment' => 'setPayment',
+'added' => 'setAdded',
+'updated' => 'setUpdated'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -170,21 +206,30 @@ class VdbEngine implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-'name' => 'getName',
-'slug' => 'getSlug',
+'uuid' => 'getUuid',
+'project' => 'getProject',
 'type' => 'getType',
-'capacity' => 'getCapacity',
-'power' => 'getPower',
-'torque' => 'getTorque',
-'cylinders' => 'getCylinders',
-'year' => 'getYear',
-'ecu' => 'getEcu',
-'tcu' => 'getTcu',
-'hp_values' => 'getHpValues',
-'nm_values' => 'getNmValues',
-'rpm_values' => 'getRpmValues',
-'engine_code' => 'getEngineCode',
-'fuel_name' => 'getFuelName'    ];
+'ecu_number' => 'getEcuNumber',
+'ecu_label' => 'getEcuLabel',
+'remap_id' => 'getRemapId',
+'remap_name' => 'getRemapName',
+'remap_addons' => 'getRemapAddons',
+'size' => 'getSize',
+'md5sum' => 'getMd5sum',
+'is_checksum_updated' => 'getIsChecksumUpdated',
+'user_id' => 'getUserId',
+'uploaded_by' => 'getUploadedBy',
+'is_original' => 'getIsOriginal',
+'is_stack' => 'getIsStack',
+'stack' => 'getStack',
+'is_cmdencrypted' => 'getIsCmdencrypted',
+'is_cmddecrypted' => 'getIsCmddecrypted',
+'is_id' => 'getIsId',
+'comment' => 'getComment',
+'pricing' => 'getPricing',
+'payment' => 'getPayment',
+'added' => 'getAdded',
+'updated' => 'getUpdated'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -245,21 +290,30 @@ class VdbEngine implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
+        $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
+        $this->container['project'] = isset($data['project']) ? $data['project'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['capacity'] = isset($data['capacity']) ? $data['capacity'] : null;
-        $this->container['power'] = isset($data['power']) ? $data['power'] : null;
-        $this->container['torque'] = isset($data['torque']) ? $data['torque'] : null;
-        $this->container['cylinders'] = isset($data['cylinders']) ? $data['cylinders'] : null;
-        $this->container['year'] = isset($data['year']) ? $data['year'] : null;
-        $this->container['ecu'] = isset($data['ecu']) ? $data['ecu'] : null;
-        $this->container['tcu'] = isset($data['tcu']) ? $data['tcu'] : null;
-        $this->container['hp_values'] = isset($data['hp_values']) ? $data['hp_values'] : null;
-        $this->container['nm_values'] = isset($data['nm_values']) ? $data['nm_values'] : null;
-        $this->container['rpm_values'] = isset($data['rpm_values']) ? $data['rpm_values'] : null;
-        $this->container['engine_code'] = isset($data['engine_code']) ? $data['engine_code'] : null;
-        $this->container['fuel_name'] = isset($data['fuel_name']) ? $data['fuel_name'] : null;
+        $this->container['ecu_number'] = isset($data['ecu_number']) ? $data['ecu_number'] : null;
+        $this->container['ecu_label'] = isset($data['ecu_label']) ? $data['ecu_label'] : null;
+        $this->container['remap_id'] = isset($data['remap_id']) ? $data['remap_id'] : null;
+        $this->container['remap_name'] = isset($data['remap_name']) ? $data['remap_name'] : null;
+        $this->container['remap_addons'] = isset($data['remap_addons']) ? $data['remap_addons'] : null;
+        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
+        $this->container['md5sum'] = isset($data['md5sum']) ? $data['md5sum'] : null;
+        $this->container['is_checksum_updated'] = isset($data['is_checksum_updated']) ? $data['is_checksum_updated'] : null;
+        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
+        $this->container['uploaded_by'] = isset($data['uploaded_by']) ? $data['uploaded_by'] : null;
+        $this->container['is_original'] = isset($data['is_original']) ? $data['is_original'] : null;
+        $this->container['is_stack'] = isset($data['is_stack']) ? $data['is_stack'] : null;
+        $this->container['stack'] = isset($data['stack']) ? $data['stack'] : null;
+        $this->container['is_cmdencrypted'] = isset($data['is_cmdencrypted']) ? $data['is_cmdencrypted'] : null;
+        $this->container['is_cmddecrypted'] = isset($data['is_cmddecrypted']) ? $data['is_cmddecrypted'] : null;
+        $this->container['is_id'] = isset($data['is_id']) ? $data['is_id'] : null;
+        $this->container['comment'] = isset($data['comment']) ? $data['comment'] : null;
+        $this->container['pricing'] = isset($data['pricing']) ? $data['pricing'] : null;
+        $this->container['payment'] = isset($data['payment']) ? $data['payment'] : null;
+        $this->container['added'] = isset($data['added']) ? $data['added'] : null;
+        $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
     }
 
     /**
@@ -299,7 +353,7 @@ class VdbEngine implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id Engine ID.
+     * @param int $id File ID.
      *
      * @return $this
      */
@@ -311,49 +365,49 @@ class VdbEngine implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets name
+     * Gets uuid
      *
      * @return string
      */
-    public function getName()
+    public function getUuid()
     {
-        return $this->container['name'];
+        return $this->container['uuid'];
     }
 
     /**
-     * Sets name
+     * Sets uuid
      *
-     * @param string $name Engine name.
+     * @param string $uuid File v4 UUID.
      *
      * @return $this
      */
-    public function setName($name)
+    public function setUuid($uuid)
     {
-        $this->container['name'] = $name;
+        $this->container['uuid'] = $uuid;
 
         return $this;
     }
 
     /**
-     * Gets slug
+     * Gets project
      *
-     * @return string
+     * @return int
      */
-    public function getSlug()
+    public function getProject()
     {
-        return $this->container['slug'];
+        return $this->container['project'];
     }
 
     /**
-     * Sets slug
+     * Sets project
      *
-     * @param string $slug URL-friendly name (slug).
+     * @param int $project Project ID (Sedox ID).
      *
      * @return $this
      */
-    public function setSlug($slug)
+    public function setProject($project)
     {
-        $this->container['slug'] = $slug;
+        $this->container['project'] = $project;
 
         return $this;
     }
@@ -371,7 +425,7 @@ class VdbEngine implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string $type Engine type. Diesel, Petrol, Turbo Diesel, Turbo Petrol, Heavy Diesel, Heavy Turbo Diesel, Marine Diesel, Marine Petrol, Marine Turbo Diesel, Hybrid, Other.
+     * @param string $type Type of the file.  For original files it can be: `ID File` or `Original`. For tuned files it can be `Stage 1, 2, 3, etc`. For files with special requests only (like `DPF Off`, `Vmax Off`, etc) it can be `Decativation Only`.
      *
      * @return $this
      */
@@ -383,289 +437,505 @@ class VdbEngine implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets capacity
+     * Gets ecu_number
      *
      * @return int
      */
-    public function getCapacity()
+    public function getEcuNumber()
     {
-        return $this->container['capacity'];
+        return $this->container['ecu_number'];
     }
 
     /**
-     * Sets capacity
+     * Sets ecu_number
      *
-     * @param int $capacity Engine capacity in cubic cm.
+     * @param int $ecu_number ECU number. Some cars have more than one ECU.
      *
      * @return $this
      */
-    public function setCapacity($capacity)
+    public function setEcuNumber($ecu_number)
     {
-        $this->container['capacity'] = $capacity;
+        $this->container['ecu_number'] = $ecu_number;
 
         return $this;
     }
 
     /**
-     * Gets power
+     * Gets ecu_label
+     *
+     * @return string
+     */
+    public function getEcuLabel()
+    {
+        return $this->container['ecu_label'];
+    }
+
+    /**
+     * Sets ecu_label
+     *
+     * @param string $ecu_label ECU label.
+     *
+     * @return $this
+     */
+    public function setEcuLabel($ecu_label)
+    {
+        $this->container['ecu_label'] = $ecu_label;
+
+        return $this;
+    }
+
+    /**
+     * Gets remap_id
      *
      * @return int
      */
-    public function getPower()
+    public function getRemapId()
     {
-        return $this->container['power'];
+        return $this->container['remap_id'];
     }
 
     /**
-     * Sets power
+     * Sets remap_id
      *
-     * @param int $power Engine horse power (metric).
+     * @param int $remap_id ID of the remap.
      *
      * @return $this
      */
-    public function setPower($power)
+    public function setRemapId($remap_id)
     {
-        $this->container['power'] = $power;
+        $this->container['remap_id'] = $remap_id;
 
         return $this;
     }
 
     /**
-     * Gets torque
+     * Gets remap_name
+     *
+     * @return string
+     */
+    public function getRemapName()
+    {
+        return $this->container['remap_name'];
+    }
+
+    /**
+     * Sets remap_name
+     *
+     * @param string $remap_name Name of the remap.
+     *
+     * @return $this
+     */
+    public function setRemapName($remap_name)
+    {
+        $this->container['remap_name'] = $remap_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets remap_addons
+     *
+     * @return string[]
+     */
+    public function getRemapAddons()
+    {
+        return $this->container['remap_addons'];
+    }
+
+    /**
+     * Sets remap_addons
+     *
+     * @param string[] $remap_addons Array with all special requests (addons) added into the file.
+     *
+     * @return $this
+     */
+    public function setRemapAddons($remap_addons)
+    {
+        $this->container['remap_addons'] = $remap_addons;
+
+        return $this;
+    }
+
+    /**
+     * Gets size
      *
      * @return int
      */
-    public function getTorque()
+    public function getSize()
     {
-        return $this->container['torque'];
+        return $this->container['size'];
     }
 
     /**
-     * Sets torque
+     * Sets size
      *
-     * @param int $torque Engine torque in Nm.
+     * @param int $size Actual file size in bytes.
      *
      * @return $this
      */
-    public function setTorque($torque)
+    public function setSize($size)
     {
-        $this->container['torque'] = $torque;
+        $this->container['size'] = $size;
 
         return $this;
     }
 
     /**
-     * Gets cylinders
+     * Gets md5sum
+     *
+     * @return string
+     */
+    public function getMd5sum()
+    {
+        return $this->container['md5sum'];
+    }
+
+    /**
+     * Sets md5sum
+     *
+     * @param string $md5sum MD5 sum of the file.
+     *
+     * @return $this
+     */
+    public function setMd5sum($md5sum)
+    {
+        $this->container['md5sum'] = $md5sum;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_checksum_updated
+     *
+     * @return bool
+     */
+    public function getIsChecksumUpdated()
+    {
+        return $this->container['is_checksum_updated'];
+    }
+
+    /**
+     * Sets is_checksum_updated
+     *
+     * @param bool $is_checksum_updated Shows either checksum was updated (corrected) or not
+     *
+     * @return $this
+     */
+    public function setIsChecksumUpdated($is_checksum_updated)
+    {
+        $this->container['is_checksum_updated'] = $is_checksum_updated;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_id
      *
      * @return int
      */
-    public function getCylinders()
+    public function getUserId()
     {
-        return $this->container['cylinders'];
+        return $this->container['user_id'];
     }
 
     /**
-     * Sets cylinders
+     * Sets user_id
      *
-     * @param int $cylinders Number of cylinders.
+     * @param int $user_id Owner of the file.
      *
      * @return $this
      */
-    public function setCylinders($cylinders)
+    public function setUserId($user_id)
     {
-        $this->container['cylinders'] = $cylinders;
+        $this->container['user_id'] = $user_id;
 
         return $this;
     }
 
     /**
-     * Gets year
+     * Gets uploaded_by
      *
      * @return int
      */
-    public function getYear()
+    public function getUploadedBy()
     {
-        return $this->container['year'];
+        return $this->container['uploaded_by'];
     }
 
     /**
-     * Sets year
+     * Sets uploaded_by
      *
-     * @param int $year Manufacture year.
+     * @param int $uploaded_by Uploader of the file (may be a sub-account)
      *
      * @return $this
      */
-    public function setYear($year)
+    public function setUploadedBy($uploaded_by)
     {
-        $this->container['year'] = $year;
+        $this->container['uploaded_by'] = $uploaded_by;
 
         return $this;
     }
 
     /**
-     * Gets ecu
+     * Gets is_original
      *
-     * @return string
+     * @return bool
      */
-    public function getEcu()
+    public function getIsOriginal()
     {
-        return $this->container['ecu'];
+        return $this->container['is_original'];
     }
 
     /**
-     * Sets ecu
+     * Sets is_original
      *
-     * @param string $ecu ECU used.
+     * @param bool $is_original Shows either this is an original file or not.
      *
      * @return $this
      */
-    public function setEcu($ecu)
+    public function setIsOriginal($is_original)
     {
-        $this->container['ecu'] = $ecu;
+        $this->container['is_original'] = $is_original;
 
         return $this;
     }
 
     /**
-     * Gets tcu
+     * Gets is_stack
      *
-     * @return string
+     * @return bool
      */
-    public function getTcu()
+    public function getIsStack()
     {
-        return $this->container['tcu'];
+        return $this->container['is_stack'];
     }
 
     /**
-     * Sets tcu
+     * Sets is_stack
      *
-     * @param string $tcu Transmission control unit.
+     * @param bool $is_stack Shows if file is stack (archive). Archive contains more than one file. If car is with 2 ECUs you will receive stacked file (archive) with 2 modified files (one for each ECU).
      *
      * @return $this
      */
-    public function setTcu($tcu)
+    public function setIsStack($is_stack)
     {
-        $this->container['tcu'] = $tcu;
+        $this->container['is_stack'] = $is_stack;
 
         return $this;
     }
 
     /**
-     * Gets hp_values
+     * Gets stack
      *
-     * @return string
+     * @return int
      */
-    public function getHpValues()
+    public function getStack()
     {
-        return $this->container['hp_values'];
+        return $this->container['stack'];
     }
 
     /**
-     * Sets hp_values
+     * Sets stack
      *
-     * @param string $hp_values HP values for plotting a dyno chart.
+     * @param int $stack Stack ID (if this file is part of stack/archive).
      *
      * @return $this
      */
-    public function setHpValues($hp_values)
+    public function setStack($stack)
     {
-        $this->container['hp_values'] = $hp_values;
+        $this->container['stack'] = $stack;
 
         return $this;
     }
 
     /**
-     * Gets nm_values
+     * Gets is_cmdencrypted
      *
-     * @return string
+     * @return bool
      */
-    public function getNmValues()
+    public function getIsCmdencrypted()
     {
-        return $this->container['nm_values'];
+        return $this->container['is_cmdencrypted'];
     }
 
     /**
-     * Sets nm_values
+     * Sets is_cmdencrypted
      *
-     * @param string $nm_values Nm values for plotting a dyno chart.
+     * @param bool $is_cmdencrypted Shows either this is a CMD Encrypted file.
      *
      * @return $this
      */
-    public function setNmValues($nm_values)
+    public function setIsCmdencrypted($is_cmdencrypted)
     {
-        $this->container['nm_values'] = $nm_values;
+        $this->container['is_cmdencrypted'] = $is_cmdencrypted;
 
         return $this;
     }
 
     /**
-     * Gets rpm_values
+     * Gets is_cmddecrypted
      *
-     * @return string
+     * @return bool
      */
-    public function getRpmValues()
+    public function getIsCmddecrypted()
     {
-        return $this->container['rpm_values'];
+        return $this->container['is_cmddecrypted'];
     }
 
     /**
-     * Sets rpm_values
+     * Sets is_cmddecrypted
      *
-     * @param string $rpm_values RPM values for plotting a dyno chart.
+     * @param bool $is_cmddecrypted Shows either this is a CMD Decrypted file.
      *
      * @return $this
      */
-    public function setRpmValues($rpm_values)
+    public function setIsCmddecrypted($is_cmddecrypted)
     {
-        $this->container['rpm_values'] = $rpm_values;
+        $this->container['is_cmddecrypted'] = $is_cmddecrypted;
 
         return $this;
     }
 
     /**
-     * Gets engine_code
+     * Gets is_id
      *
-     * @return string
+     * @return bool
      */
-    public function getEngineCode()
+    public function getIsId()
     {
-        return $this->container['engine_code'];
+        return $this->container['is_id'];
     }
 
     /**
-     * Sets engine_code
+     * Sets is_id
      *
-     * @param string $engine_code Engine code.
+     * @param bool $is_id Shows either this is an ID file.
      *
      * @return $this
      */
-    public function setEngineCode($engine_code)
+    public function setIsId($is_id)
     {
-        $this->container['engine_code'] = $engine_code;
+        $this->container['is_id'] = $is_id;
 
         return $this;
     }
 
     /**
-     * Gets fuel_name
+     * Gets comment
      *
      * @return string
      */
-    public function getFuelName()
+    public function getComment()
     {
-        return $this->container['fuel_name'];
+        return $this->container['comment'];
     }
 
     /**
-     * Sets fuel_name
+     * Sets comment
      *
-     * @param string $fuel_name Type of the fuel used. Diesel, Petrol, Ethanol, LPG, Hybrid.
+     * @param string $comment Comment left by developer.
      *
      * @return $this
      */
-    public function setFuelName($fuel_name)
+    public function setComment($comment)
     {
-        $this->container['fuel_name'] = $fuel_name;
+        $this->container['comment'] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Gets pricing
+     *
+     * @return \Tuningfiles\Model\ProjectFilePricing
+     */
+    public function getPricing()
+    {
+        return $this->container['pricing'];
+    }
+
+    /**
+     * Sets pricing
+     *
+     * @param \Tuningfiles\Model\ProjectFilePricing $pricing pricing
+     *
+     * @return $this
+     */
+    public function setPricing($pricing)
+    {
+        $this->container['pricing'] = $pricing;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment
+     *
+     * @return \Tuningfiles\Model\ProjectFilePayment
+     */
+    public function getPayment()
+    {
+        return $this->container['payment'];
+    }
+
+    /**
+     * Sets payment
+     *
+     * @param \Tuningfiles\Model\ProjectFilePayment $payment payment
+     *
+     * @return $this
+     */
+    public function setPayment($payment)
+    {
+        $this->container['payment'] = $payment;
+
+        return $this;
+    }
+
+    /**
+     * Gets added
+     *
+     * @return \DateTime
+     */
+    public function getAdded()
+    {
+        return $this->container['added'];
+    }
+
+    /**
+     * Sets added
+     *
+     * @param \DateTime $added Date-time file was uploaded.
+     *
+     * @return $this
+     */
+    public function setAdded($added)
+    {
+        $this->container['added'] = $added;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->container['updated'];
+    }
+
+    /**
+     * Sets updated
+     *
+     * @param \DateTime $updated Date-time file was updated.
+     *
+     * @return $this
+     */
+    public function setUpdated($updated)
+    {
+        $this->container['updated'] = $updated;
 
         return $this;
     }

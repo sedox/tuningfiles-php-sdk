@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **uploaded** | [**\DateTime**](\DateTime.md) | Date on which project was created. | [optional] 
 **updated** | [**\DateTime**](\DateTime.md) | Last update date. | [optional] 
 **attachments** | [**\Tuningfiles\Model\Attachment[]**](Attachment.md) | Array of attachment objects. All the attachments in this project. | [optional] 
-**files** | [**\Tuningfiles\Model\\SplFileObject[]**](\SplFileObject.md) | Array of file objects. All the files in this project. | [optional] 
+**files** | [**\Tuningfiles\Model\ProjectFile[]**](ProjectFile.md) | Array of file objects. All the files in this project. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
