@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **model** | **string** |  | [optional] 
 **model_id** | **int** |  | [optional] 
 **model_year** | **int** |  | [optional] 
+**generation** | **string** |  | [optional] 
+**generation_id** | **int** |  | [optional] 
 **engine_name** | **string** |  | [optional] 
 **engine_id** | **int** |  | [optional] 
 **engine_output_ps** | **int** |  | [optional] 
