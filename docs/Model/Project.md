@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **string** | Project name. | [optional] 
 **status** | **string** | Project status. Can be: \&quot;Waiting\&quot;, \&quot;In Progress\&quot;, \&quot;Finished\&quot;. | [optional] 
 **status_code** | **int** | Project status code. Can be: 0 &#x3D; \&quot;Waiting\&quot;; 1 &#x3D; \&quot;In Progress\&quot;; 2 &#x3D; \&quot;Finished\&quot;. | [optional] 
-**vehicle_data** | [**\Tuningfiles\Model\ProjectVehicleData[]**](ProjectVehicleData.md) |  | [optional] 
+**vehicle_data** | [**\Tuningfiles\Model\ProjectVehicleData**](ProjectVehicleData.md) |  | [optional] 
 **read_tool** | **string** | Read tool used for reading the ECU. | [optional] 
 **read_tool_id** | **int** |  | [optional] 
 **dtc_codes** | **string[]** | Array with DTC codes requested for removal. | [optional] 
