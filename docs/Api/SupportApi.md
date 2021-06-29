@@ -4,13 +4,69 @@ All URIs are relative to *https://api.tuningfiles.com/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**supportCloseTicket**](SupportApi.md#supportcloseticket) | **GET** /support/tickets/close/{ticket_id} | Close/Resolve ticket
 [**supportCreateMessage**](SupportApi.md#supportcreatemessage) | **POST** /support/messages/{ticket_id} | Create message
 [**supportCreateTicket**](SupportApi.md#supportcreateticket) | **POST** /support/tickets | Create ticket
 [**supportListDepartments**](SupportApi.md#supportlistdepartments) | **GET** /support/departments | List support departments
 [**supportListMessages**](SupportApi.md#supportlistmessages) | **GET** /support/messages/{ticket_id} | List ticket messages
 [**supportListTickets**](SupportApi.md#supportlisttickets) | **GET** /support/tickets | List tickets
+[**supportReopenTicket**](SupportApi.md#supportreopenticket) | **GET** /support/tickets/reopen/{ticket_id} | Re-open ticket
 [**supportUploadAttachment**](SupportApi.md#supportuploadattachment) | **POST** /support/messages/attachment | Upload file attachment
 [**supportViewTicket**](SupportApi.md#supportviewticket) | **GET** /support/tickets/{ticket_id} | View ticket
+
+# **supportCloseTicket**
+> \Tuningfiles\Model\InlineResponse201 supportCloseTicket($ticket_id)
+
+Close/Resolve ticket
+
+Set the status of the support request (ticket) to \"Closed/Resolved\".
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: api_key
+$config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+$apiInstance = new Tuningfiles\Api\SupportApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$ticket_id = "ticket_id_example"; // string | Tciket ID
+
+try {
+    $result = $apiInstance->supportCloseTicket($ticket_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SupportApi->supportCloseTicket: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ticket_id** | **string**| Tciket ID |
+
+### Return type
+
+[**\Tuningfiles\Model\InlineResponse201**](../Model/InlineResponse201.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **supportCreateMessage**
 > \Tuningfiles\Model\SupportTicketMessages[] supportCreateMessage($message, $display_name, $display_email, $attachments, $ticket_id)
@@ -294,6 +350,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Tuningfiles\Model\SupportTickets**](../Model/SupportTickets.md)
+
+### Authorization
+
+[api_key](../../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **supportReopenTicket**
+> \Tuningfiles\Model\InlineResponse201 supportReopenTicket($ticket_id)
+
+Re-open ticket
+
+Set the status of the support request (ticket) to \"Open\".
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: api_key
+$config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Tuningfiles\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+
+$apiInstance = new Tuningfiles\Api\SupportApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$ticket_id = "ticket_id_example"; // string | Tciket ID
+
+try {
+    $result = $apiInstance->supportReopenTicket($ticket_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SupportApi->supportReopenTicket: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ticket_id** | **string**| Tciket ID |
+
+### Return type
+
+[**\Tuningfiles\Model\InlineResponse201**](../Model/InlineResponse201.md)
 
 ### Authorization
 
