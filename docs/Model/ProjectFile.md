@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **ecu_label** | **string** | ECU label. | [optional] 
 **remap_id** | **int** | ID of the remap. | [optional] 
 **remap_name** | **string** | Name of the remap. | [optional] 
-**remap_addons** | **string[]** | Array with all special requests (addons) added into the file. | [optional] 
+**remap_addons** | [**\Tuningfiles\Model\RemapAddon[]**](RemapAddon.md) | Array with all special requests (addons) added into the file. | [optional] 
 **size** | **int** | Actual file size in bytes. | [optional] 
 **md5sum** | **string** | MD5 sum of the file. | [optional] 
 **is_checksum_updated** | **bool** | Shows either checksum was updated (corrected) or not | [optional] 
