@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **display_name** | **string** | Message display name. Name of the person who wrote the message. | [optional] 
 **display_email** | **string** | Message display email. Email of the person who wrote the message. | [optional] 
 **is_from_staff** | **bool** | Shows if message was written by the stagff. | [optional] 
-**attachments** | [**\Tuningfiles\Model\SupportTicketMessageAttachments**](SupportTicketMessageAttachments.md) |  | [optional] 
+**attachments** | [**\Tuningfiles\Model\SupportTicketMessagesAttachments[]**](SupportTicketMessagesAttachments.md) |  | [optional] 
 **added** | [**\DateTime**](\DateTime.md) | Date on which message was created | [optional] 
 **updated** | [**\DateTime**](\DateTime.md) | Date on which message was updated | [optional] 
 

@@ -1,4 +1,4 @@
-# SupportTicketMessageAttachmentsInner
+# SupportTicketMessagesAttachments
 
 ## Properties
 Name | Type | Description | Notes

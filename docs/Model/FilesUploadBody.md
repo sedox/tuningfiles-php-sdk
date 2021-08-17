@@ -1,4 +1,4 @@
-# Body2
+# FilesUploadBody
 
 ## Properties
 Name | Type | Description | Notes
