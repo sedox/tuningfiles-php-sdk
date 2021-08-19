@@ -197,7 +197,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **supportListDepartments**
-> \Tuningfiles\Model\SupportDepartments supportListDepartments()
+> \Tuningfiles\Model\SupportDepartments[] supportListDepartments()
 
 List support departments
 
@@ -233,7 +233,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Tuningfiles\Model\SupportDepartments**](../Model/SupportDepartments.md)
+[**\Tuningfiles\Model\SupportDepartments[]**](../Model/SupportDepartments.md)
 
 ### Authorization
 
