@@ -342,7 +342,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **vdbSearch**
-> \Tuningfiles\Model\VdbSearch vdbSearch($query)
+> \Tuningfiles\Model\VdbSearch[] vdbSearch($query)
 
 Search
 
@@ -382,7 +382,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Tuningfiles\Model\VdbSearch**](../Model/VdbSearch.md)
+[**\Tuningfiles\Model\VdbSearch[]**](../Model/VdbSearch.md)
 
 ### Authorization
 
