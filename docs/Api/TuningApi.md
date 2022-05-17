@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsCreate**
-> \Tuningfiles\Model\Projects projectsCreate($ecu1_file, $ecu1_label, $ecu2_file, $ecu2_label, $vehicle_type_id, $vehicle_manufacturer_id, $vehicle_model_id, $vehicle_generation_id, $vehicle_engine, $vehicle_engine_id, $vehicle_year, $vehicle_gearbox, $vehicle_ecu, $hardware_number, $software_number, $read_tool, $remap, $addons, $dtc_codes, $notification_channel, $file_attachment, $ref, $customer_comment)
+> \Tuningfiles\Model\Projects projectsCreate($ecu1_file, $ecu1_label, $ecu2_file, $ecu2_label, $vehicle_type_id, $vehicle_manufacturer_id, $vehicle_model_id, $vehicle_model, $vehicle_generation_id, $vehicle_generation, $vehicle_engine, $vehicle_engine_id, $vehicle_year, $vehicle_gearbox, $vehicle_ecu, $hardware_number, $software_number, $read_tool, $remap, $addons, $dtc_codes, $notification_channel, $file_attachment, $ref, $customer_comment)
 
 Create project
 
@@ -426,7 +426,9 @@ $ecu2_label = "ecu2_label_example"; // string |
 $vehicle_type_id = 56; // int | 
 $vehicle_manufacturer_id = 56; // int | 
 $vehicle_model_id = 56; // int | 
+$vehicle_model = "vehicle_model_example"; // string | 
 $vehicle_generation_id = 56; // int | 
+$vehicle_generation = "vehicle_generation_example"; // string | 
 $vehicle_engine = "vehicle_engine_example"; // string | 
 $vehicle_engine_id = 56; // int | 
 $vehicle_year = 56; // int | 
@@ -444,7 +446,7 @@ $ref = "ref_example"; // string |
 $customer_comment = "customer_comment_example"; // string | 
 
 try {
-    $result = $apiInstance->projectsCreate($ecu1_file, $ecu1_label, $ecu2_file, $ecu2_label, $vehicle_type_id, $vehicle_manufacturer_id, $vehicle_model_id, $vehicle_generation_id, $vehicle_engine, $vehicle_engine_id, $vehicle_year, $vehicle_gearbox, $vehicle_ecu, $hardware_number, $software_number, $read_tool, $remap, $addons, $dtc_codes, $notification_channel, $file_attachment, $ref, $customer_comment);
+    $result = $apiInstance->projectsCreate($ecu1_file, $ecu1_label, $ecu2_file, $ecu2_label, $vehicle_type_id, $vehicle_manufacturer_id, $vehicle_model_id, $vehicle_model, $vehicle_generation_id, $vehicle_generation, $vehicle_engine, $vehicle_engine_id, $vehicle_year, $vehicle_gearbox, $vehicle_ecu, $hardware_number, $software_number, $read_tool, $remap, $addons, $dtc_codes, $notification_channel, $file_attachment, $ref, $customer_comment);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TuningApi->projectsCreate: ', $e->getMessage(), PHP_EOL;
@@ -463,7 +465,9 @@ Name | Type | Description  | Notes
  **vehicle_type_id** | **int**|  |
  **vehicle_manufacturer_id** | **int**|  |
  **vehicle_model_id** | **int**|  |
+ **vehicle_model** | **string**|  |
  **vehicle_generation_id** | **int**|  |
+ **vehicle_generation** | **string**|  |
  **vehicle_engine** | **string**|  |
  **vehicle_engine_id** | **int**|  |
  **vehicle_year** | **int**|  |
