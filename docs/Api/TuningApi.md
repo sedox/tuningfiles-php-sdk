@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **notificationChannelsList**
-> \Tuningfiles\Model\NotificationChannels notificationChannelsList()
+> \Tuningfiles\Model\NotificationChannel[] notificationChannelsList()
 
 List notification channels
 
@@ -330,7 +330,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Tuningfiles\Model\NotificationChannels**](../Model/NotificationChannels.md)
+[**\Tuningfiles\Model\NotificationChannel[]**](../Model/NotificationChannel.md)
 
 ### Authorization
 
@@ -606,7 +606,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **remapsList**
-> \Tuningfiles\Model\VehicleRemaps remapsList($vehicle_type_id)
+> \Tuningfiles\Model\Remap[] remapsList($vehicle_type_id)
 
 List available remaps
 
@@ -646,7 +646,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Tuningfiles\Model\VehicleRemaps**](../Model/VehicleRemaps.md)
+[**\Tuningfiles\Model\Remap[]**](../Model/Remap.md)
 
 ### Authorization
 
