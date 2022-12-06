@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **updated** | [**\DateTime**](\DateTime.md) | Last update date. | [optional] 
 **attachments** | [**\Tuningfiles\Model\Attachment[]**](Attachment.md) | Array of attachment objects. All the attachments in this project. | [optional] 
 **files** | [**\Tuningfiles\Model\ProjectFile[]**](ProjectFile.md) | Array of file objects. All the files in this project. | [optional] 
+**metadata** | **map[string,string]** | You can use this parameter to attach arbitrary key-value data to be sent. Metadata is useful for storing additional, structured information such as your user&#x27;s corresponding unique identifier from your system. By default, metadata is acessible, but not used by our developers, but you may use it for your reference. You can specify up to 10 keys, with key names up to 20 characters long and values up to 500 characters long. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

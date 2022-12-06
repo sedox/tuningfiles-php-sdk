@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **file_attachment** | **int** | ID of additional file to be attached. Obtained from the [/attachments/upload](#operation/attachment_upload) method. Please note that, this is not for referencing original files! | [optional] 
 **ref** | **string** | License plate or Reference ID. | [optional] 
 **customer_comment** | **string** | Comment for the developers. | [optional] 
+**metadata** | **map[string,string]** | You can use this parameter to attach arbitrary key-value data to be sent. Metadata is useful for storing additional, structured information such as your user&#x27;s corresponding unique identifier from your system. By default, metadata is acessible, but not used by our developers, but you may use it for your reference. You can specify up to 10 keys, with key names up to 20 characters long and values up to 500 characters long. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
